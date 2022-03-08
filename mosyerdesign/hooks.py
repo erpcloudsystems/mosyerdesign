@@ -13,11 +13,11 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/mosyerdesign/css/mosyerdesign.css"
+app_include_css = "/assets/mosyerdesign/css/mosyerdesign-app.css"
 # app_include_js = "/assets/mosyerdesign/js/mosyerdesign.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/mosyerdesign/css/mosyerdesign.css"
+web_include_css = "/assets/mosyerdesign/css/mosyerdesign-web.css"
 # web_include_js = "/assets/mosyerdesign/js/mosyerdesign.js"
 
 # include custom scss in every website theme (without file extension ".scss")

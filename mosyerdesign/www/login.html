@@ -1,0 +1,181 @@
+{% extends "templates/web.html" %}
+
+{% macro email_login_body() -%}
+<div class="page-card-body">
+	<div class="form-group">
+		<label class="form-label sr-only" for="login_email">{{ login_label or _("Email")}}</label>
+		<div class="email-field">
+			<label for="login_email">Email</label>
+			<input type="text" id="login_email" class="form-control"  required autofocus>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="form-label sr-only" for="login_password">{{ _("Password") }}</label>
+		<div class="password-field">
+			<label for="login_password">Password</label>
+			<input type="password" id="login_password" class="form-control"  autocomplete="current-password" required>
+			<!-- <span toggle="#login_password" class="toggle-password text-muted text-left">{{ _('Show') }}</span> -->
+		</div>
+	</div>
+</div>
+
+<div class="page-card-actions">
+	<button class="btn btn-sm btn-block btn-login" type="submit">
+		{{ _("Sign In") }}</button>
+
+	{% if ldap_settings and ldap_settings.enabled %}
+	<button class="btn btn-sm btn-default btn-block btn-login btn-ldap-login">
+		{{ _("Login with LDAP") }}</button>
+	{% endif %}
+</div>
+	<p class="text-left forgot-password-message pt-4">
+		<a href="#forgot">{{ _("Forgot Password?") }}</a>
+	</p>
+{% endmacro %}
+
+{% block head_include %}
+<link type="text/css" rel="stylesheet" href="/assets/css/login.css?ver={{ build_version }}">
+{% endblock %}
+
+{% macro logo_section() %}
+<div class="page-card-head">
+	<img class="app-logo" src="/assets/mosyerdesign/img/mosyrlogo2150171511-135gl-200h.png" alt="logo">
+</div>
+{% endmacro %}
+
+{% block page_content %}
+<!-- {{ for_test }} -->
+<div class="row">
+	<noscript>
+		<div class="text-center my-5">
+			<h4>{{ _("Javascript is disabled on your browser") }}</h4>
+			<p class="text-muted">
+				{{ _("You need to enable JavaScript for your app to work.") }}<br>{{ _("To enable it follow the instructions in the following link: {0}").format("<a href='https://enable-javascript.com/'>enable-javascript.com</a></p>") }}
+		</div>
+	</noscript>
+	<div class="col-xs-12 col-md-5 mt-4">
+		{{ logo_section() }}
+		<section class='for-login'>
+		<div class="login-content page-card">
+			{%- if not disable_signup -%}
+			<div class="sign-up-message">
+				<h4 style="font-weight: 700; color: rgba(43, 39, 55, 1); font-size: 34px ">Sign In</h4>
+				{{ _("Don't have an account yet?") }}
+				<br>
+				<a href="#signup">{{ _("Sign up") }}</a>
+			</div>
+			{%- endif -%}
+			<form class="form-signin form-login" role="form">
+				{%- if social_login -%}
+				<div class="page-card-body">
+					<div class="social-logins text-center">
+						<div class="social-login-buttons">
+							{% for provider in provider_logins %}
+							<div class="login-button-wrapper">
+								<a href="{{ provider.auth_url }}"
+									class="btn btn-block btn-default btn-sm btn-login-option btn-{{ provider.name }}">
+									{% if provider.icon %}
+										{{ provider.icon }}
+									{% endif %}
+									{{ _("Login With {0}").format(provider.provider_name) }}</a>
+							</div>
+							{% endfor %}
+							<p class="text-muted login-divider">{{ _("or") }}</p>
+						</div>
+					</div>
+					<a href="#email"
+						class="btn btn-block btn-default btn-sm btn-login-option">
+					 {{ _("Login With Email") }}</a>
+				</div>
+				{% else %}
+					{{ email_login_body() }}
+				{%- endif -%}
+			</form>
+		</div>
+	</section>
+
+	{%- if social_login -%}
+	<section class='for-email-login'>
+		<div class="login-content page-card">
+			<form class="form-signin form-login" role="form">
+			{{ email_login_body() }}
+			</form>
+		</div>
+		{%- if not disable_signup -%}
+		<div class="text-center sign-up-message">
+			<h4></h4>
+			{{ _("Don't have an account?") }}
+			<a href="#signup">{{ _("Sign up") }}</a>
+		</div>
+		{%- endif -%}
+	</section>
+	{%- endif -%}
+	<section class='for-signup {{ "signup-disabled" if disable_signup else "" }}'>
+		<div class="login-content page-card">
+			{%- if not disable_signup -%}
+			<form class="form-signin form-signup hide" role="form">
+				<div class="page-card-body">
+					<div class="form-group">
+						<label class="form-label sr-only" for="signup_fullname">Full Name</label>
+						<input type="text" id="signup_fullname" class="form-control"  required autofocus>
+					</div>
+					<div class="form-group">
+						<label class="form-label sr-only" for="signup_email">Email</label>
+						<input type="email" id="signup_email" class="form-control"  required>
+					</div>
+				</div>
+				<div class="page-card-actions">
+					<button class="btn btn-sm btn-block btn-signup" type="submit">{{ _("Sign up") }}</button>
+
+					<p class="text-center sign-up-message">
+						<a href="#login" class="blue">{{ _("Have an account? Login") }}</a>
+					</p>
+				</div>
+			</form>
+			{%- else -%}
+			<div class='page-card-head mb-2'>
+				<span class='indicator gray'>{{_("Signup Disabled")}}</span>
+				<p class="text-muted text-normal sign-up-message mt-1 mb-8">{{_("Signups have been disabled for this website.")}}</p>
+				<div><a href='/' class='btn btn-primary btn-md'>{{ _("Home") }}</a></div>
+			</div>
+			{%- endif -%}
+		</div>
+
+	</section>
+
+	<section class='for-forgot'>
+		<div class="login-content page-card">
+			<form class="form-signin form-forgot hide" role="form">
+				<div class="text-left page-card-head">
+					<h4>{{ _('Forgot Password') }}</h4>
+				</div>
+				<div class="page-card-body">
+					<div class="email-field">
+						<label for="email">Email</label>
+						<input type="email" id="forgot_email" class="form-control"  required autofocus>
+					</div>
+				</div>
+				<div class="page-card-actions">
+					<button class="btn btn-sm btn-primary btn-block btn-forgot"
+						type="submit">{{ _("Reset Password") }}</button>
+					<p class="sign-up-message pt-4">
+						<a href="#login">{{ _("Back to Login") }}</a>
+					</p>
+				</div>
+
+			</form>
+		</div>
+	</section>
+	</div>
+	<div class="col-xs-12 col-md-7">
+		<img src="/assets/mosyerdesign/img/saly1350229431-s7o-900w.png" alt="main photo" style="width: 100%; height: 100%; object-fit: cover;"/>
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>{% include "templates/includes/login/login.js" %}</script>
+{% endblock %}
+
+{% block sidebar %}{% endblock %}
