@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include mosyerdesign *.css
+recursive-include mosyerdesign *.csv
+recursive-include mosyerdesign *.html
+recursive-include mosyerdesign *.ico
+recursive-include mosyerdesign *.js
+recursive-include mosyerdesign *.json
+recursive-include mosyerdesign *.md
+recursive-include mosyerdesign *.png
+recursive-include mosyerdesign *.py
+recursive-include mosyerdesign *.svg
+recursive-include mosyerdesign *.txt
+recursive-exclude mosyerdesign *.pyc
