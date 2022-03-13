@@ -1,0 +1,72 @@
+<div class="list-sidebar overlay-sidebar hidden-xs hidden-sm" style="width: 100%;">
+    <div class="desk-sidebar list-unstyled sidebar-menu">
+        <div class="standard-sidebar-section">
+            <div class="standard-sidebar-label"></div>
+            <a class="navbar-brand navbar-home mb-3" href="/app"
+                style="border-bottom: 1px solid #eee; margin-right: 0; width: 100%;">
+                <img class="app-logo" style="width: 125px; min-height: 50px !important;"
+                    src="{{ frappe.boot.app_logo_url }}">
+            </a>
+            <a href="/app/user" class="standard-sidebar-item mb-2" style="border-bottom: 1px solid #eee;">
+                <span>
+                    <img src="{{ frappe.boot.user_info[frappe.session.user].image }}" width="30" /
+                        style="border-radius: 50%;">
+                    <svg class="icon  icon-md">
+                        <use></use>
+                    </svg>
+                </span>
+                <span class="sidebar-item-label"> {{ frappe.session.user_fullname }}<span>
+            </a>
+            {% for doc in allowed_doctypes %}
+            <a href="/app/{{frappe.router.slug(doc.name)}}" class="desk-sidebar-item standard-sidebar-item ">
+                <span>
+                    <svg class="icon  icon-md">
+                        <use class="" href="#icon-{{doc.icon}}"></use>
+                    </svg>
+                </span>
+                <span class="sidebar-item-label">{{doc.label}}<span>
+                    </span></span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="nav-item dropdown dropdown-navbar-user dropdown-mobile mb-2">
+        <a class="nav-link" style="padding: 0.5rem;" data-toggle="dropdown" href="#" onclick="return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+            </svg>
+            <span class="ml-2">Settings</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" id="toolbar-user" role="menu">
+            {% for item in frappe.boot.navbar_settings.settings_dropdown %}
+            {% if (!item.hidden) { %}
+            {% if (item.route) { %}
+            <a class="dropdown-item" href="{{ item.route }}">
+                {%= __(item.item_label) %}
+            </a>
+            {% } else if (item.action) { %}
+            <a class="dropdown-item" onclick="return {{ item.action }}">
+                {%= __(item.item_label) %}
+            </a>
+            {% } else { %}
+            <div class="dropdown-divider"></div>
+            {% } %}
+            {% } %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="text-center">
+        <img src="/assets/mosyerdesign/img/support.jpg" alt="support image" style="width: 200px" />
+    </div>
+     <a class="nav-link" style="padding: 0.5rem;" href="{{frappe.boot.navbar_settings.settings_dropdown[0].route }}">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
+             viewBox="0 0 16 16">
+             <path
+                 d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+         </svg>
+        <span class="ml-2">My Account</span>
+     </a>
+</div>

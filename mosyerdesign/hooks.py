@@ -8,13 +8,14 @@ app_icon = "octicon octicon-file-directory"
 app_color = "#f51"
 app_email = "zaqout2000@gmail.com"
 app_license = "MIT"
+app_logo_url = '/assets/mosyerdesign/img/mosyrlogo2150171511-135gl-200h.png'
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
 app_include_css = "/assets/mosyerdesign/css/mosyerdesign-app.css"
-# app_include_js = "/assets/mosyerdesign/js/mosyerdesign.js"
+app_include_js = "/assets/mosyerdesign/js/mosyerdesign.min.js"
 
 # include js, css files in header of web template
 web_include_css = "/assets/mosyerdesign/css/mosyerdesign-web.css"
@@ -32,7 +33,7 @@ web_include_css = "/assets/mosyerdesign/css/mosyerdesign-web.css"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_list_js = {"Employee" : "public/js/employee_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
@@ -179,3 +180,4 @@ user_data_fields = [
 # 	"mosyerdesign.auth.validate"
 # ]
 
+extend_bootinfo = "mosyerdesign.boot.boot_session"

@@ -46,15 +46,15 @@
 
 {% block page_content %}
 <!-- {{ for_test }} -->
+<noscript>
+	<div class="text-center my-5">
+		<h4>{{ _("Javascript is disabled on your browser") }}</h4>
+		<p class="text-muted">
+			{{ _("You need to enable JavaScript for your app to work.") }}<br>{{ _("To enable it follow the instructions in the following link: {0}").format("<a href='https://enable-javascript.com/'>enable-javascript.com</a></p>") }}
+	</div>
+</noscript>
 <div class="row">
-	<noscript>
-		<div class="text-center my-5">
-			<h4>{{ _("Javascript is disabled on your browser") }}</h4>
-			<p class="text-muted">
-				{{ _("You need to enable JavaScript for your app to work.") }}<br>{{ _("To enable it follow the instructions in the following link: {0}").format("<a href='https://enable-javascript.com/'>enable-javascript.com</a></p>") }}
-		</div>
-	</noscript>
-	<div class="col-xs-12 col-md-5 mt-4">
+	<div class="col-lg-5 col-md-12 mt-4">
 		{{ logo_section() }}
 		<section class='for-login'>
 		<div class="login-content page-card">
@@ -168,7 +168,7 @@
 		</div>
 	</section>
 	</div>
-	<div class="col-xs-12 col-md-7">
+	<div class="col-lg-7 login-img">
 		<img src="/assets/mosyerdesign/img/saly1350229431-s7o-900w.png" alt="main photo" style="width: 100%; height: 100%; object-fit: cover;"/>
 	</div>
 </div>

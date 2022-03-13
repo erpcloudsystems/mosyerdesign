@@ -6,14 +6,13 @@ nav.navbar,
 .navbar-light, 
 .navbar-expand-lg{
     display: none !important;
-    background-color: red !important;
 }
-#page-login{
+/* #page-login{
     height: 100% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-}
+} */
 .for-login{
     padding-top: 40px !important;
 }
@@ -60,4 +59,10 @@ form.form-signin,
 }
 footer.web-footer {
     display: none !important;
+}
+
+@media only screen and (max-width: 1200px) {
+    .login-img {
+        display: none !important
+    }
 }

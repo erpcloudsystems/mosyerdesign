@@ -1,0 +1,16 @@
+{
+    "mosyerdesign/js/mosyerdesign.min.js":[
+        "public/templates/navbar.html",
+        "public/templates/page.html",
+        "public/templates/list_sidebar.html",
+        "public/templates/form_sidebar.html",
+        "public/js/custom_workspace.js",
+        "public/js/custom_list_sidebar.js",
+        "public/js/custom_form_sidebar.js",
+        "public/js/employee_list.js"
+    ],
+    "mosyerdesign/css/mosyerdesign.min.css":[
+        "public/css/mosyerdesign-app.css",
+        "public/css/mosyerdesign-web.css"
+    ]
+}
