@@ -24,6 +24,8 @@ a.desk-sidebar-item:hover {
     margin-top: -5px !important;
     padding-top: 10px !important;
     padding-right: 0 !important;
+    position: relative !important;
+    overflow-y: visible !important;
 }
 .standard-sidebar-label,
 .widget-group-title {
@@ -84,6 +86,57 @@ a.desk-sidebar-item:hover {
     color: var(--purple-color) !important;
     background-color: transparent !important;
 }
+
+/* ======== Toggler Btn ========= */
+.hidden{
+    display: none !important;
+}
+a.toggler-btn{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 25px;
+}
+.tooltip-text{
+    position: absolute;
+    visibility: hidden;
+    background-color: var(--purple-color);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 5px 2px;
+    width: 110px;
+    margin-left: 5px;
+    z-index: 999999999999;
+    text-align: center;
+}
+a.toggler-btn:hover .tooltip-text{
+    visibility: visible;
+}
+.toggle-sidebar{
+    max-width: 100px !important;
+}
+.user-settings-list{
+    min-width: 100px !important;
+    max-width: 120px !important;
+}
+.toggler-btn-sm{
+    width: 90px;
+    margin: 0 auto;
+}
+
+/* ======== Media Query ======== */
+@media only screen and (min-width: 992px) {
+    .show-sidebar-toggle{
+        display: none !important;
+    }
+}
+@media only screen and (max-width: 992px) {
+    a.toggler-btn {
+        display: none !important;
+    }
+}
+
 body{
     background-color: #fff !important;
     font-family: 'Poppins', sans-serif !important;
@@ -150,5 +203,23 @@ footer.web-footer {
 @media only screen and (max-width: 1200px) {
     .login-img {
         display: none !important
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .form-group input,
+    #forgot_email,
+    .page-card-actions button {
+        width: 90% !important;
+        margin: auto !important;
+    }
+    .forgot-password-message{
+        text-align: center !important;
+    }
+    .page-card-head{
+        text-align: center !important;
+    }
+    .login-content{
+        text-align: center !important;
     }
 }

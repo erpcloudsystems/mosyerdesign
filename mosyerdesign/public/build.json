@@ -7,7 +7,9 @@
         "public/js/custom_workspace.js",
         "public/js/custom_list_sidebar.js",
         "public/js/custom_form_sidebar.js",
-        "public/js/employee_list.js"
+        "public/js/employee_list.js",
+        "public/js/custom_page.js",
+        "public/js/main.js"
     ],
     "mosyerdesign/css/mosyerdesign.min.css":[
         "public/css/mosyerdesign-app.css",

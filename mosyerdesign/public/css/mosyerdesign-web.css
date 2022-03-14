@@ -66,3 +66,21 @@ footer.web-footer {
         display: none !important
     }
 }
+
+@media only screen and (max-width: 1200px) {
+    .form-group input,
+    #forgot_email,
+    .page-card-actions button {
+        width: 90% !important;
+        margin: auto !important;
+    }
+    .forgot-password-message{
+        text-align: center !important;
+    }
+    .page-card-head{
+        text-align: center !important;
+    }
+    .login-content{
+        text-align: center !important;
+    }
+}
