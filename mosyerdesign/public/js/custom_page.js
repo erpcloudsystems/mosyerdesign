@@ -1,60 +1,62 @@
 frappe.ui.Page.prototype.add_main_section = function(){
         $(frappe.render_template("page", {})).appendTo(this.wrapper);
+        let pageActions = `
+                            <div class="flex page-actions row my-4 pr-2">
+                                <div class="col-md-6 col-xs-12 flex widget-boxs justify-content-between"></div>
+                                <!-- buttons -->
+                                <div class="col-md-5 col-xs-12 actions-btn flex justify-content-end" style="margin-left: auto;">
+                                    <div class="custom-actions hide hidden-xs hidden-md"></div>
+                                    <div class="standard-actions flex">
+                                        <span class="page-icon-group hide hidden-xs hidden-sm"></span>
+                                        <div class="menu-btn-group hide">
+                                            <button type="button" class="btn btn-default icon-btn" data-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <span>
+                                                    <span class="menu-btn-group-label">
+                                                        <svg class="icon icon-sm">
+                                                            <use xlink:href="#icon-dot-horizontal">
+                                                            </use>
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                                        </div>
+                                        <button class="btn btn-secondary btn-default btn-sm hide"></button>
+                                        <div class="actions-btn-group hide">
+                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <span class="hidden-xs">
+                                                    <span class="actions-btn-group-label">${__("Actions") }</span>
+                                                    <svg class="icon icon-xs">
+                                                        <use xlink:href="#icon-select">
+                                                        </use>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                            </ul>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm hide primary-action"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            `
         if (this.single_column) {
             // nesting under col-sm-12 for consistency
-            this.add_view("main", '<div class="row layout-main">\
-					<div class="col-md-12 layout-main-section-wrapper">\
-						<div class="layout-main-section"></div>\
-						<div class="layout-footer hide"></div>\
-					</div>\
-				</div>');
+            this.add_view("main", `<div class="row layout-main">
+					<div class="col-md-12 layout-main-section-wrapper">
+                        ${pageActions}
+						<div class="layout-main-section"></div>
+						<div class="layout-footer hide"></div>
+					</div>
+				</div>`);
         } else {
             this.add_view("main", `
 				<div class="row layout-main">
 					<div class="col-lg-2 layout-side-section"></div>
 					<div class="col layout-main-section-wrapper">
-                        <div class="flex page-actions row my-4 pr-2"> 
-                        <div class="col-md-6 col-xs-12 flex widget-boxs justify-content-between"></div>
-                        <!-- buttons -->
-                        <div class = "col-md-5 col-xs-12 actions-btn flex justify-content-end"
-                        style = "margin-left: auto;" >
-                            <div class="custom-actions hide hidden-xs hidden-md"></div>
-                            <div class="standard-actions flex">
-                                <span class="page-icon-group hide hidden-xs hidden-sm"></span>
-                                <div class="menu-btn-group hide">
-                                    <button type="button" class="btn btn-default icon-btn" data-toggle="dropdown"
-                                        aria-expanded="false">
-                                        <span>
-                                            <span class="menu-btn-group-label">
-                                                <svg class="icon icon-sm">
-                                                    <use xlink:href="#icon-dot-horizontal">
-                                                    </use>
-                                                </svg>
-                                            </span>
-                                        </span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
-                                </div>
-                                <button class="btn btn-secondary btn-default btn-sm hide"></button>
-                                <div class="actions-btn-group hide">
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="dropdown"
-                                        aria-expanded="false">
-                                        <span class="hidden-xs">
-                                            <span class="actions-btn-group-label">${__("Actions") }</span>
-                                            <svg class="icon icon-xs">
-                                                <use xlink:href="#icon-select">
-                                                </use>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                    </ul>
-                                </div>
-                                <button class="btn btn-primary btn-sm hide primary-action"></button>
-                            </div>
-                        </div>
-                        
-                        </div>
+                        ${pageActions}
 						<div class="layout-main-section"></div>
 						<div class="layout-footer hide"></div>
 					</div>
