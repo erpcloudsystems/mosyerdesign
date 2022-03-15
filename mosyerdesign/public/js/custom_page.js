@@ -14,9 +14,10 @@ frappe.ui.Page.prototype.add_main_section = function(){
 					<div class="col-lg-2 layout-side-section"></div>
 					<div class="col layout-main-section-wrapper">
                         <div class="flex page-actions row my-4 pr-2"> 
-                        <div class="col-6 flex widget-boxs justify-content-between"></div>
+                        <div class="col-md-6 col-xs-12 flex widget-boxs justify-content-between"></div>
                         <!-- buttons -->
-                        <div class="col-5 flex justify-content-end" style="margin-left: auto;">
+                        <div class = "col-md-5 col-xs-12 actions-btn flex justify-content-end"
+                        style = "margin-left: auto;" >
                             <div class="custom-actions hide hidden-xs hidden-md"></div>
                             <div class="standard-actions flex">
                                 <span class="page-icon-group hide hidden-xs hidden-sm"></span>

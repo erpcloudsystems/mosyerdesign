@@ -185,6 +185,12 @@ a.toggler-btn:hover .tooltip-text{
         display: none !important;
     }
 }
+@media only screen and (max-width: 768px) {
+    .actions-btn {
+        margin-top: 8px !important;
+    }
+}
+
 
 body{
     background-color: #fff !important;
