@@ -47,6 +47,13 @@ a.desk-sidebar-item:hover {
 }
 #navbar-search{
     height: 50px !important;
+    background-color: #f9fafa8f !important;
+}
+#navbar-search::placeholder{
+    color: var(--dark-gray-color) !important;
+}
+.search-bar svg{
+    stroke: var(--dark-gray-color) !important;
 }
 .desk-sidebar{
     border-bottom: 1px solid var(--gray-color) !important;
