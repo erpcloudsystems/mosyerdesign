@@ -8,7 +8,10 @@ frappe.listview_settings['Employee'] = {
 
         } else if (doc.status === "Suspended") {
             return [__("Suspended"), "red", "status,=,Suspended"];
-        } 
+
+        }else if (doc.status === "On Leave") {
+            return [__("On Leave"), "purple", "status,=,On Leave"];
+        }
     },
     onload: function (listview) {}
 };

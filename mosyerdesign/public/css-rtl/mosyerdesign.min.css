@@ -2,17 +2,26 @@
 :root{
     --purple-color: #885af8;
     --gray-color: #eee;
+    --dark-gray-color: #90a0b7;
     --blue-color: #109cf1;
     --green-color: #2ed47a;
     --red-color: #f6685b;
     --yellow-color: #ffb946;
 }
 .btn-primary{
+    border-radius: 6px !important;
     background-color: var(--purple-color) !important;
 }
 .active{
     color: var(--purple-color) !important;
     background-color: transparent !important;
+}
+.purple{
+    background-color: var(--purple-color);
+    color: var(--purple-color);
+}
+.bg-yellow{
+    background-color: var(--yellow-color);
 }
 /* ========= SideBar ========= */
 a.desk-sidebar-item:hover {
@@ -52,9 +61,9 @@ a.desk-sidebar-item:hover {
     align-items: center !important;
     justify-content: center !important;
 }
-/* .layout-main-section-wrapper{
-    background-color: var(--gray-color) !important;
-} */
+.layout-main-section-wrapper{
+    border-radius: 6px !important;
+}
 [data-page-route="Workspaces"] .layout-main .desk-sidebar {
     margin-bottom: 0 !important;
 }
@@ -64,7 +73,11 @@ a.desk-sidebar-item:hover {
     text-align: center !important;
 }
 /* =========ShortCut========= */
+.widget{
+    border-radius: 6px !important;
+}
 .shortcut-widget-box {
+    border-radius: 6px !important;
     background-color: var(--purple-color) !important;
 }
 .widget-title{
@@ -124,7 +137,43 @@ a.toggler-btn:hover .tooltip-text{
     width: 90px;
     margin: 0 auto;
 }
-
+/* ========== Page Btn ========= */
+.sort-selector{
+    display: none !important;
+}
+.page-actions .btn:not(.icon-btn){
+    height: auto !important;
+    padding: 8px 15px !important;
+}
+.standard-actions{
+    align-items: center !important;
+}
+/* ========== Employee Status Boxes =========== */
+.status-box{
+    width: 180px;
+    height: 70px;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.status-box-body{
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+}
+.active-status {
+    background-color: var(--green-color);
+}
+.inactive-status {
+    background-color: var(--dark-gray-color);
+}
+.leave-status {
+    background-color: var(--purple-color);
+}
 /* ======== Media Query ======== */
 @media only screen and (min-width: 992px) {
     .show-sidebar-toggle{

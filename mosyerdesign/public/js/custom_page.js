@@ -13,8 +13,10 @@ frappe.ui.Page.prototype.add_main_section = function(){
 				<div class="row layout-main">
 					<div class="col-lg-2 layout-side-section"></div>
 					<div class="col layout-main-section-wrapper">
-                        <div class="flex page-actions justify-content-end bg-white my-2 pr-2" style="height: 50px; border-radius: 8px;box-shadow: 0px 1px 2px rgba(25,39,52,0.05), 0px 0px 4px rgba(25,39,52,0.1)"> 
+                        <div class="flex page-actions row my-4 pr-2"> 
+                        <div class="col-6 flex widget-boxs justify-content-between"></div>
                         <!-- buttons -->
+                        <div class="col-5 flex justify-content-end" style="margin-left: auto;">
                             <div class="custom-actions hide hidden-xs hidden-md"></div>
                             <div class="standard-actions flex">
                                 <span class="page-icon-group hide hidden-xs hidden-sm"></span>
@@ -37,7 +39,7 @@ frappe.ui.Page.prototype.add_main_section = function(){
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="dropdown"
                                         aria-expanded="false">
                                         <span class="hidden-xs">
-                                            <span class="actions-btn-group-label">{%= __("Actions") %}</span>
+                                            <span class="actions-btn-group-label">${__("Actions") }</span>
                                             <svg class="icon icon-xs">
                                                 <use xlink:href="#icon-select">
                                                 </use>
@@ -50,11 +52,37 @@ frappe.ui.Page.prototype.add_main_section = function(){
                                 <button class="btn btn-primary btn-sm hide primary-action"></button>
                             </div>
                         </div>
+                        
+                        </div>
 						<div class="layout-main-section"></div>
 						<div class="layout-footer hide"></div>
 					</div>
 				</div>
 			`);
+        }
+
+        let current_doc = frappe.get_route()[1]
+        if (current_doc == 'Employee'){
+            async function totalInactive(status) {
+                let total = await frappe.db.get_list('Employee', {filters:{'status': status}})
+                let template = `
+                                <div class="status-box ${status == 'Active'? 'active-status': status == 'Inactive'? 'inactive-status': status == 'On Leave'? 'leave-status': 'bg-yellow'}" >
+                                    <div> 
+                                        <p>${status} </p>
+                                        <p style="font-size: 18px; font-weight: 800;"> ${total.length} </p>
+                                    </div>
+                                    <div class="status-box-body flex align-items-center justify-content-around">
+                                        <svg style="margin-left:15px;" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                `
+                $('.widget-boxs').prepend(template)
+            }
+            totalInactive('Active')
+            totalInactive('Inactive')
+            totalInactive('Left')
         }
         this.setup_page();
 }
