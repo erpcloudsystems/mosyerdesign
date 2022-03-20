@@ -1,7 +1,10 @@
 <header class="navbar navbar-expand sticky-top" role="navigation">
 	<div class="container-fluid px-5 row">
-		<div class="col-lg-2">
-			<div class="page-head show-sidebar-toggle" style="background-color: transparent;">
+		<div class="col-lg-2 flex align-items-center justify-content-between" style="padding-left: 0;">
+			<a class="navbar-brand navbar-home" href="/app" style="flex: 1;">
+				<img class="app-logo" style="width: 125px; min-height: 50px;" src="{{ frappe.boot.app_logo_url }}">
+			</a>
+			<div class="page-head show-sidebar-toggle" style="background-color: transparent; position: static;">
 				<span class="sidebar-toggle-btn">
 					<span class="sidebar-toggle-icon">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggles class="
@@ -14,7 +17,7 @@
 				</span> 
 			</div>
 		</div>
-		<div class="col-lg-10 col-xs-12">
+		<div class="col-lg-10 col-xs-12" style="padding-right: 0;">
 			<div class="collapse navbar-collapse justify-content-end">
 				<form class="form-inline fill-width justify-content-end" role="search" onsubmit="return false;">
 					<div class="input-group search-bar text-muted hidden" style="max-width: 100%;">

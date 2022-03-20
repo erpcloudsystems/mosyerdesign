@@ -5,7 +5,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "doctypes"
+  "doctypes",
+  "home_shortcuts",
+  "home_charts"
  ],
  "fields": [
   {
@@ -13,12 +15,24 @@
    "fieldtype": "Table",
    "label": "Doctypes",
    "options": "Doctype Table"
+  },
+  {
+   "fieldname": "home_shortcuts",
+   "fieldtype": "Table",
+   "label": "Home Shortcuts",
+   "options": "Home Shortcuts Table"
+  },
+  {
+   "fieldname": "home_charts",
+   "fieldtype": "Table",
+   "label": "Home Charts",
+   "options": "Home Chart Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-03-09 15:35:35.519606",
+ "modified": "2022-03-17 16:01:59.460574",
  "modified_by": "Administrator",
  "module": "Mosyerdesign",
  "name": "System Controller",

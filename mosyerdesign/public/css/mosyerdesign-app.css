@@ -12,6 +12,10 @@
     border-radius: 6px !important;
     background-color: var(--purple-color) !important;
 }
+.btn-purple{
+    background-color: var(--purple-color) !important;
+    color: #fff;
+}
 .active{
     color: var(--purple-color) !important;
     background-color: transparent !important;
@@ -23,10 +27,37 @@
 .bg-yellow{
     background-color: var(--yellow-color);
 }
+.bg-purple{
+    background-color: var(--purple-color);
+    color: #fff;
+}
+span.count{
+    background-color: #fff;
+    color: #222;
+    padding: 3px 6px;
+    text-align: center;
+    border-radius: 50%;
+}
+.splash img{
+    width: 300px !important;
+    min-width: 300px !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+.datepicker{
+    background-color: #fff !important;
+}
+.svg-size{
+    width: 30px !important;
+    height: 30px !important;
+}
 /* ========= SideBar ========= */
 a.desk-sidebar-item:hover {
     color: var(--purple-color) !important;
     background-color: transparent !important;
+}
+.sidebar-item-label{
+    font-size: 18px !important;
 }
 .layout-side-section{
     background-color: #fff !important;
@@ -80,7 +111,7 @@ a.desk-sidebar-item:hover {
     text-align: center !important;
 }
 /* =========ShortCut========= */
-.widget{
+/* .widget{
     border-radius: 6px !important;
 }
 .shortcut-widget-box {
@@ -92,7 +123,7 @@ a.desk-sidebar-item:hover {
 }
 .widget-title>span{
     color: #222 !important;
-}
+} */
 /* ================== */
 .list-row-head ,
 .level-item {
@@ -180,6 +211,51 @@ a.toggler-btn:hover .tooltip-text{
 }
 .leave-status {
     background-color: var(--purple-color);
+}
+
+button[data-label="CustomizeCustomize"]{
+    display: none !important;
+}
+.shortcut-boxes{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.status-box-body svg {
+    stroke: #fff !important;
+}
+.desk-page div.widget-group:last-child{
+    display: none !important;
+}
+.widget.dashboard-widget-box .widget-control{
+    right: -15px !important;
+    top: -10px !important;
+}
+/* .widget-charts{
+    margin-bottom: 10px !important;
+}
+.widget-charts .widget-group-body{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-evenly !important;
+}
+.dashboard-widget-box{
+    width: 400px !important;
+    min-width: 400px !important;
+    max-height: 230px !important;
+}
+.widget-head{
+    display: none !important;
+} */
+/* =========== Notifications ============= */
+.attendance-notification:hover{
+    background-color: #eee;
+}
+.attendance-notification:hover svg{
+    fill: var(--purple-color) !important;
+}
+.layout-main-section-wrapper{
+    padding-right: 0 !important;
 }
 /* ======== Media Query ======== */
 @media only screen and (min-width: 992px) {

@@ -1,7 +1,8 @@
+
 frappe.ui.Page.prototype.add_main_section = function(){
         $(frappe.render_template("page", {})).appendTo(this.wrapper);
         let pageActions = `
-                            <div class="flex page-actions row my-4 pr-2">
+                            <div class="container-fluid flex page-actions row my-4">
                                 <div class="col-md-6 col-xs-12 flex widget-boxs justify-content-between"></div>
                                 <!-- buttons -->
                                 <div class="col-md-5 col-xs-12 actions-btn flex justify-content-end" style="margin-left: auto;">
@@ -64,8 +65,9 @@ frappe.ui.Page.prototype.add_main_section = function(){
 			`);
         }
 
-        let current_doc = frappe.get_route()[1]
-        if (current_doc == 'Employee'){
+        let currentDoc = frappe.get_route()[1]
+        let listCurrentDoc = frappe.get_route()[0]
+        if (currentDoc == 'Employee' && listCurrentDoc == 'List'){
             async function totalInactive(status) {
                 let total = await frappe.db.get_list('Employee', {filters:{'status': status}})
                 let template = `

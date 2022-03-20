@@ -179,5 +179,9 @@ user_data_fields = [
 # auth_hooks = [
 # 	"mosyerdesign.auth.validate"
 # ]
-
+# website Config
+website_context = {
+    "favicon": "/assets/mosyerdesign/img/mosyrlogo2150171511-135gl-200h.png",
+    "splash_image": "/assets/mosyerdesign/img/mosyrlogo2150171511-135gl-200h.png"
+}
 extend_bootinfo = "mosyerdesign.boot.boot_session"
