@@ -284,48 +284,20 @@ nav.navbar,
 .navbar-expand-lg{
     display: none !important;
 }
-/* #page-login{
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-} */
-.for-login{
-    padding-top: 40px !important;
+.page-content-wrapper{
+    overflow: hidden !important;
 }
-.for-email-login .page-card,
-.for-forgot .page-card,
-.for-login .page-card,
-.for-signup .page-card{
-    box-shadow: none !important;
+.login-content{
+    box-shadow:none !important;
     margin: 0 !important;
-    max-width: 100% !important
-}
-.form-control {
-    transition: none !important;
-}
-.form-group input,
-#forgot_email {
-    width: 65% !important;
-    height: 50px !important;
-    margin-bottom: 40px !important;
-    font-size: 16px !important;
-    border: 1px solid #eee !important;
-}
-.sign-up-message {
-    margin-top: 0 !important;
-    margin-bottom: 25px !important;
-}
-form.form-signin, 
-.form-login{
     max-width: 100% !important;
-    margin: 0 !important;
 }
-#login_password,
-#login_email{
+.form-signin, .form-login{
+    max-width: 100% !important;
+}
+input{
     padding-right: 10px !important;
-    background-color: transparent !important;
-    height: 45px !important;
+    height: 50px !important;
 }
 .page-card-actions button{
     background-color: #885af8 !important;
@@ -338,26 +310,29 @@ footer.web-footer {
     display: none !important;
 }
 
-@media only screen and (max-width: 1200px) {
-    .login-img {
-        display: none !important
+@media only screen and (max-width: 992px) {
+    .login-img{
+        display: none !important;
     }
 }
-
-@media only screen and (max-width: 1200px) {
-    .form-group input,
-    #forgot_email,
-    .page-card-actions button {
-        width: 90% !important;
-        margin: auto !important;
-    }
-    .forgot-password-message{
-        text-align: center !important;
-    }
+@media only screen and (max-width: 992px) {
     .page-card-head{
         text-align: center !important;
     }
-    .login-content{
+    .sign-up-message{
         text-align: center !important;
     }
+    button[type="submit"]{
+        margin: auto !important;
+    }
+    .forgot-password-message{
+        text-align: center !important
+    }
+    .login-content{
+        max-width: 80% !important;
+        margin: 0 auto !important;
+    }
+
 }
+
+

@@ -5,8 +5,11 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "sidebar_items_section",
   "doctypes",
+  "homepage_shortcuts_section",
   "home_shortcuts",
+  "homepage_dashboard_charts_section",
   "home_charts"
  ],
  "fields": [
@@ -27,12 +30,27 @@
    "fieldtype": "Table",
    "label": "Home Charts",
    "options": "Home Chart Table"
+  },
+  {
+   "fieldname": "sidebar_items_section",
+   "fieldtype": "Section Break",
+   "label": "Sidebar Items"
+  },
+  {
+   "fieldname": "homepage_shortcuts_section",
+   "fieldtype": "Section Break",
+   "label": "Homepage Shortcuts"
+  },
+  {
+   "fieldname": "homepage_dashboard_charts_section",
+   "fieldtype": "Section Break",
+   "label": "Homepage Dashboard Charts"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-03-17 16:01:59.460574",
+ "modified": "2022-03-21 11:54:19.336220",
  "modified_by": "Administrator",
  "module": "Mosyerdesign",
  "name": "System Controller",

@@ -59,7 +59,7 @@
 		<section class='for-login'>
 		<div class="login-content page-card">
 			{%- if not disable_signup -%}
-			<div class="sign-up-message">
+			<div class="sign-up-message mb-4">
 				<h4 style="font-weight: 700; color: rgba(43, 39, 55, 1); font-size: 34px ">Sign In</h4>
 				{{ _("Don't have an account yet?") }}
 				<br>
@@ -128,8 +128,8 @@
 				<div class="page-card-actions">
 					<button class="btn btn-sm btn-block btn-signup" type="submit">{{ _("Sign up") }}</button>
 
-					<p class="text-center sign-up-message">
-						<a href="#login" class="blue">{{ _("Have an account? Login") }}</a>
+					<p class="text-left sign-up-message">
+						<a href="#login" class="blue" style="font-size: 16px;">{{ _("Have an account? Login") }}</a>
 					</p>
 				</div>
 			</form>
@@ -159,8 +159,8 @@
 				<div class="page-card-actions">
 					<button class="btn btn-sm btn-primary btn-block btn-forgot"
 						type="submit">{{ _("Reset Password") }}</button>
-					<p class="sign-up-message pt-4">
-						<a href="#login">{{ _("Back to Login") }}</a>
+					<p class="text-left sign-up-message pt-4">
+						<a href="#login" style="font-size: 16px;">{{ _("Back to Login") }}</a>
 					</p>
 				</div>
 
