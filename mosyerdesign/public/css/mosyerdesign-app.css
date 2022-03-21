@@ -61,11 +61,14 @@ a.desk-sidebar-item:hover {
 }
 .layout-side-section{
     background-color: #fff !important;
-    margin-top: -5px !important;
+    margin-top: 0px !important;
     padding-top: 10px !important;
     padding-right: 0 !important;
     position: relative !important;
     overflow-y: visible !important;
+    margin-right: 0 !important;
+    height: calc(100vh - 63px) !important;
+    transition: all .3s ease-in-out !important;
 }
 .standard-sidebar-label,
 .widget-group-title {
@@ -111,19 +114,9 @@ a.desk-sidebar-item:hover {
     text-align: center !important;
 }
 /* =========ShortCut========= */
-/* .widget{
-    border-radius: 6px !important;
+.grid-col-1{
+    grid-template-columns: none !important;
 }
-.shortcut-widget-box {
-    border-radius: 6px !important;
-    background-color: var(--purple-color) !important;
-}
-.widget-title{
-    color: #fff !important;
-}
-.widget-title>span{
-    color: #222 !important;
-} */
 /* ================== */
 .list-row-head ,
 .level-item {
@@ -143,10 +136,10 @@ a.desk-sidebar-item:hover {
     display: none !important;
 }
 a.toggler-btn{
-    position: absolute;
-    left: 0;
+    position: absolute !important;
+    /* left: 0; */
+    bottom: 40px;
     width: 100%;
-    top: 25px;
 }
 .tooltip-text{
     position: absolute;
@@ -256,6 +249,11 @@ button[data-label="CustomizeCustomize"]{
 }
 .layout-main-section-wrapper{
     padding-right: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+[data-page-route=Workspaces] .layout-main {
+    height: calc(100vh - var(--navbar-height)- 5px) !important;
 }
 /* ======== Media Query ======== */
 @media only screen and (min-width: 992px) {
@@ -267,10 +265,12 @@ button[data-label="CustomizeCustomize"]{
     a.toggler-btn {
         display: none !important;
     }
+    .layout-side-section {
+        height: auto !important;
+    }
 }
 @media only screen and (max-width: 768px) {
     .actions-btn {
         margin-top: 8px !important;
     }
 }
-
