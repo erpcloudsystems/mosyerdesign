@@ -14,7 +14,9 @@ app_logo_url = '/assets/mosyerdesign/img/mosyrlogo2150171511-135gl-200h.png'
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/mosyerdesign/css/mosyerdesign-app.css"
+app_include_css = ["/assets/mosyerdesign/css/mosyerdesign-app.css",
+				 "/assets/mosyerdesign/css-rtl/mosyerdesign-app.css"]
+
 app_include_js = "/assets/mosyerdesign/js/mosyerdesign.min.js"
 
 # include js, css files in header of web template
@@ -181,7 +183,7 @@ user_data_fields = [
 # ]
 # website Config
 website_context = {
-    "favicon": "/assets/mosyerdesign/img/mosyrlogo2150171511-135gl-200h.png",
+    "favicon": "/assets/mosyerdesign/img/mosyrlogo.png",
     "splash_image": "/assets/mosyerdesign/img/mosyrlogo2150171511-135gl-200h.png"
 }
 extend_bootinfo = "mosyerdesign.boot.boot_session"

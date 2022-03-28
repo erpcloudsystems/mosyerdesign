@@ -1,0 +1,343 @@
+/* General Stylies */
+:root{
+    --purple-color: #885af8;
+    --gray-color: #eee;
+    --dark-gray-color: #90a0b7;
+    --blue-color: #109cf1;
+    --green-color: #2ed47a;
+    --red-color: #f6685b;
+    --yellow-color: #ffb946;
+}
+.btn-primary{
+    border-radius: 6px !important;
+    background-color: var(--purple-color) !important;
+}
+.btn-purple{
+    background-color: var(--purple-color) !important;
+    color: #fff;
+}
+.active{
+    color: var(--purple-color) !important;
+    background-color: transparent !important;
+}
+.purple{
+    background-color: var(--purple-color);
+    color: var(--purple-color);
+}
+.bg-yellow{
+    background-color: var(--yellow-color);
+}
+.bg-purple{
+    background-color: var(--purple-color);
+    color: #fff;
+}
+span.count{
+    background-color: #fff;
+    color: #222;
+    padding: 3px 6px;
+    text-align: center;
+    border-radius: 50%;
+}
+.splash img{
+    width: 300px !important;
+    min-width: 300px !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+.datepicker{
+    background-color: #fff !important;
+}
+.svg-size{
+    width: 30px !important;
+    height: 30px !important;
+}
+/* ========= SideBar ========= */
+.standard-sidebar-item>span>img{
+    width: 30px; 
+    border-radius: 50%;
+    margin-right: 27px;
+    margin-left: 0;
+}
+a.desk-sidebar-item:hover {
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
+.sidebar-item-label{
+    font-size: 18px !important;
+}
+.layout-side-section{
+    background-color: #fff !important;
+    margin-top: 0px !important;
+    padding-top: 10px !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    position: relative !important;
+    overflow-y: visible !important;
+    margin-right: 0 !important;
+    height: calc(100vh - 63px) !important;
+    transition: all .3s ease-in-out !important;
+}
+.standard-sidebar-label,
+.widget-group-title {
+    display: none !important;
+}
+.standard-sidebar-section {
+    overflow-y: auto !important;
+    height: 400px !important;
+    max-height: 400px !important;
+}
+.desk-sidebar{
+    border-bottom: 1px solid var(--gray-color) !important;
+}
+.user-avatar{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.support-img{
+    margin-top: 120px !important;
+}
+/* ========= Nav Bar ========= */
+
+#navbar-search{
+    height: 50px !important;
+    background-color: #f9fafa8f !important;
+}
+#navbar-search::placeholder{
+    color: var(--dark-gray-color) !important;
+}
+.search-bar .awesomplete input:focus{
+    box-shadow: none !important;
+}
+.search-bar svg{
+    stroke: var(--dark-gray-color) !important;
+}
+.layout-main-section-wrapper{
+    border-radius: 6px !important;
+}
+[data-page-route="Workspaces"] .layout-main .desk-sidebar {
+    margin-bottom: 0 !important;
+}
+.dropdown-navbar-user{
+    display: inline-block !important;
+    padding: 2px !important;
+    text-align: center !important;
+}
+/* =========ShortCut========= */
+.grid-col-1{
+    grid-template-columns: none !important;
+}
+.widget-title svg{
+    fill: #fff !important;
+}
+/* ================== */
+.list-row-head ,
+.level-item {
+    color: var(--purple-color) !important;
+    font-weight: 600 !important;
+}
+.indicator-pill.yellow{
+    background-color: var(--yellow-color) !important;
+}
+.onboard-spotlight:hover{
+    color: var(--purple-color) !important;
+    background-color: transparent !important;
+}
+span.remove{
+    position: absolute;
+    right:5px;
+    left: auto;
+    cursor: pointer;
+}
+.justify-content-end{
+    justify-content: flex-end !important;
+}
+/* ======== Toggler Btn ========= */
+.hidden{
+    display: none !important;
+}
+a.toggler-btn{
+    position: absolute !important;
+    bottom: 40px;
+    width: 100%;
+}
+.toggle-sidebar-btn{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.tooltip-text{
+    position: absolute;
+    visibility: hidden;
+    background-color: var(--purple-color);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 5px 2px;
+    width: 110px;
+    margin-left: 5px;
+    z-index: 999999999999;
+    text-align: center;
+}
+a.toggler-btn:hover .tooltip-text{
+    visibility: visible;
+}
+.toggle-sidebar{
+    max-width: 100px !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+.toggle-sidebar div.standard-sidebar-section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.toggle-sidebar .standard-sidebar-item>span>img{
+    margin-right: 0;
+}
+.user-settings-list{
+    min-width: 100px !important;
+    max-width: 120px !important;
+}
+.toggler-btn-sm{
+    width: 90px;
+    margin: 0 auto;
+}
+/* ========== Page Btn ========= */
+.sort-selector{
+    display: none !important;
+}
+.page-actions .btn:not(.icon-btn){
+    height: auto !important;
+    padding: 8px 15px !important;
+}
+.standard-actions{
+    align-items: center !important;
+}
+/* ========== Employee Status Boxes =========== */
+.status-box{
+    width: 180px;
+    height: 70px;
+    margin-left: 5px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.status-box-body{
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+}
+.active-status {
+    background-color: var(--green-color);
+}
+.inactive-status {
+    background-color: var(--dark-gray-color);
+}
+.leave-status {
+    background-color: var(--purple-color);
+}
+
+/* button[data-label="CustomizeCustomize"]{
+    display: none !important;
+} */
+.shortcut-boxes{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.status-box-body svg {
+    stroke: #fff !important;
+}
+/* .desk-page div.widget-group:last-child{
+    display: none !important;
+} */
+.widget.dashboard-widget-box .widget-control{
+    right: -15px !important;
+    top: -10px !important;
+}
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+.actions-btn{
+    order: 5 !important;
+}
+.widget.shortcut-widget-box{
+    width: 200px !important;
+    height: 70px !important;
+    margin-left: 5px !important;
+    padding: 5px 10px !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: var(--purple-color) !important;
+}
+.widget-head .widget-title{
+    color: #fff !important;
+}
+.widget-group .grid-col-3{
+    display: flex !important;
+}
+/* =========== Notifications ============= */
+.attendance-notification:hover{
+    background-color: #eee;
+}
+.attendance-notification:hover svg{
+    fill: var(--purple-color) !important;
+}
+.layout-main-section-wrapper{
+    padding-right: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+[data-page-route=Workspaces] .layout-main {
+    height: calc(100vh - var(--navbar-height)- 5px) !important;
+}
+/* ======== Media Query ======== */
+@media only screen and (min-width: 992px) {
+    .show-sidebar-toggle{
+        display: none !important;
+    }
+}
+@media only screen and (max-width: 992px) {
+    a.toggler-btn {
+        display: none !important;
+    }
+    .layout-side-section {
+        height: auto !important;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .actions-btn {
+        margin-top: 8px !important;
+    }
+}
+
+/* html[dir="rtl"] div.layout-side-section{
+    padding-right: 15px !important;
+    padding-left: 0 !important;
+} */
+
+html[dir="rtl"] span.remove{
+    position: absolute;
+    right:auto;
+    left: 5px;
+    cursor: pointer;
+}
+html[dir="rtl"] a.standard-sidebar-item>span>img{
+    width: 30px; 
+    border-radius: 50%;
+    margin-left: 27px;
+    margin-right: 0;
+}
+html[dir="rtl"] div.actions-btn{
+    order: -5 !important;
+    justify-content: flex-start !important;
+}
+html[dir="rtl"] button[data-label="CustomizeCustomize"]{
+    display: none !important;
+}
