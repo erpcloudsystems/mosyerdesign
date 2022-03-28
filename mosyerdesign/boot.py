@@ -1,11 +1,10 @@
 
 import frappe
 
-
 def boot_session(bootinfo):
     bootinfo.allowed_doctypes = get_allowed_doctypes()
-    bootinfo.home_shortcuts = get_home_shortcuts()
-    bootinfo.home_charts = get_home_charts()
+    bootinfo.doc_notification = get_doctypes_notification()
+    bootinfo.enable_sys_controller = enable_system_controller()
 
 def get_allowed_doctypes():
     system_controller = frappe.get_single('System Controller')
@@ -16,20 +15,15 @@ def get_allowed_doctypes():
                                     'icon': doctype.icon, 'label': doctype.label, 'module': doctype.module})
     return allowed_doctypes
 
-def get_home_shortcuts():
+def get_doctypes_notification():
     system_controller = frappe.get_single('System Controller')
-    home_shortcuts = []
-    if len(system_controller.home_shortcuts) > 0:
-        for shcut in system_controller.home_shortcuts:
-            doc_list = frappe.get_list(shcut.title)
-            home_shortcuts.append({'title': shcut.title, 'count': len(doc_list), 'icon': shcut.icon})
-    return home_shortcuts
+    if len(system_controller.notifications):
+        docs_info = []
+        for doc in system_controller.notifications:
+            lst =  frappe.get_list(doc.title, fields=['*'], limit=5)
+            docs_info += lst
+        return docs_info
 
-def get_home_charts():
+def enable_system_controller():
     system_controller = frappe.get_single('System Controller')
-    home_charts = []
-    if len(system_controller.home_charts) > 0:
-        for chart in system_controller.home_charts:
-            doc = frappe.get_doc('Dashboard Chart', chart.chart)
-            home_charts.append(doc.name)
-    return home_charts
+    return system_controller.enable

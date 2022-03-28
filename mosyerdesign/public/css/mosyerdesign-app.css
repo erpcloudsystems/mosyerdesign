@@ -52,9 +52,15 @@ span.count{
     height: 30px !important;
 }
 /* ========= SideBar ========= */
+.standard-sidebar-item>span>img{
+    width: 30px; 
+    border-radius: 50%;
+    margin-right: 27px;
+    margin-left: 0;
+}
 a.desk-sidebar-item:hover {
-    color: var(--purple-color) !important;
-    background-color: transparent !important;
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
 }
 .sidebar-item-label{
     font-size: 18px !important;
@@ -64,6 +70,7 @@ a.desk-sidebar-item:hover {
     margin-top: 0px !important;
     padding-top: 10px !important;
     padding-right: 0 !important;
+    padding-left: 0 !important;
     position: relative !important;
     overflow-y: visible !important;
     margin-right: 0 !important;
@@ -79,6 +86,19 @@ a.desk-sidebar-item:hover {
     height: 400px !important;
     max-height: 400px !important;
 }
+.desk-sidebar{
+    border-bottom: 1px solid var(--gray-color) !important;
+}
+.user-avatar{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.support-img{
+    margin-top: 120px !important;
+}
+/* ========= Nav Bar ========= */
+
 #navbar-search{
     height: 50px !important;
     background-color: #f9fafa8f !important;
@@ -86,21 +106,11 @@ a.desk-sidebar-item:hover {
 #navbar-search::placeholder{
     color: var(--dark-gray-color) !important;
 }
+.search-bar .awesomplete input:focus{
+    box-shadow: none !important;
+}
 .search-bar svg{
     stroke: var(--dark-gray-color) !important;
-}
-.desk-sidebar{
-    border-bottom: 1px solid var(--gray-color) !important;
-}
-.toggle-sidebar-btn{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-.user-avatar{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
 }
 .layout-main-section-wrapper{
     border-radius: 6px !important;
@@ -111,11 +121,17 @@ a.desk-sidebar-item:hover {
 .dropdown-navbar-user{
     display: inline-block !important;
     padding: 2px !important;
-    text-align: center !important;
+    text-align: left !important;
 }
 /* =========ShortCut========= */
 .grid-col-1{
     grid-template-columns: none !important;
+}
+.widget-title svg{
+    fill: #fff !important;
+}
+.grid-col-3{
+    flex-wrap: wrap !important;
 }
 /* ================== */
 .list-row-head ,
@@ -130,16 +146,29 @@ a.desk-sidebar-item:hover {
     color: var(--purple-color) !important;
     background-color: transparent !important;
 }
-
+span.remove{
+    position: absolute;
+    right:5px;
+    left: auto;
+    cursor: pointer;
+}
+.justify-content-end{
+    justify-content: flex-end !important;
+}
 /* ======== Toggler Btn ========= */
 .hidden{
     display: none !important;
 }
 a.toggler-btn{
     position: absolute !important;
-    /* left: 0; */
     bottom: 40px;
     width: 100%;
+    left: 15px;
+}
+.toggle-sidebar-btn{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 .tooltip-text{
     position: absolute;
@@ -159,6 +188,16 @@ a.toggler-btn:hover .tooltip-text{
 }
 .toggle-sidebar{
     max-width: 100px !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+.toggle-sidebar div.standard-sidebar-section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.toggle-sidebar .standard-sidebar-item>span>img{
+    margin-right: 0;
 }
 .user-settings-list{
     min-width: 100px !important;
@@ -206,9 +245,9 @@ a.toggler-btn:hover .tooltip-text{
     background-color: var(--purple-color);
 }
 
-button[data-label="CustomizeCustomize"]{
+/* button[data-label="CustomizeCustomize"]{
     display: none !important;
-}
+} */
 .shortcut-boxes{
     display: flex;
     align-items: center;
@@ -217,35 +256,53 @@ button[data-label="CustomizeCustomize"]{
 .status-box-body svg {
     stroke: #fff !important;
 }
-.desk-page div.widget-group:last-child{
+/* .desk-page div.widget-group:last-child{
     display: none !important;
-}
+} */
 .widget.dashboard-widget-box .widget-control{
     right: -15px !important;
     top: -10px !important;
 }
-/* .widget-charts{
-    margin-bottom: 10px !important;
+.dashboard-widget-box{
+    min-width: 100% !important;
 }
-.widget-charts .widget-group-body{
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+.widget.shortcut-widget-box{
+    width: 200px !important;
+    height: 70px !important;
+    margin-left: 5px !important;
+    padding: 5px 10px !important;
+    border-radius: 6px !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: space-evenly !important;
+    justify-content: center !important;
+    background-color: var(--purple-color) !important;
 }
-.dashboard-widget-box{
-    width: 400px !important;
-    min-width: 400px !important;
-    max-height: 230px !important;
+.widget-head .widget-title{
+    color: #fff !important;
 }
-.widget-head{
-    display: none !important;
-} */
+.widget-group .grid-col-3{
+    display: flex !important;
+}
 /* =========== Notifications ============= */
-.attendance-notification:hover{
-    background-color: #eee;
+.notification-box{
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    margin-top: 10px;
+    padding:10px;
+    box-shadow: 0px 0px 9px rgb(0 0 0 / 7%);
 }
-.attendance-notification:hover svg{
-    fill: var(--purple-color) !important;
+.notification-box:hover{
+    background-color: var(--purple-color);
+    color: #fff;
+}
+.notification-box:hover h5,
+.notification-box:hover h6, 
+.notification-box:hover span{
+    color: #fff !important;
 }
 .layout-main-section-wrapper{
     padding-right: 0 !important;
@@ -254,6 +311,10 @@ button[data-label="CustomizeCustomize"]{
 
 [data-page-route=Workspaces] .layout-main {
     height: calc(100vh - var(--navbar-height)- 5px) !important;
+}
+/* ========= Attendance State ======== */
+.attendance-state{
+    padding-bottom: 15px;
 }
 /* ======== Media Query ======== */
 @media only screen and (min-width: 992px) {

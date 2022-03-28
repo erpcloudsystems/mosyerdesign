@@ -4,7 +4,5 @@
 # import frappe
 from frappe.model.document import Document
 
-class SystemController(Document):
-	def validate(self):
-		self.enable = 1
-
+class NotificationsTable(Document):
+	pass

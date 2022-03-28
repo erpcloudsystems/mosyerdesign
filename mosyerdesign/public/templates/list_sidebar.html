@@ -2,19 +2,15 @@
     <div class="desk-sidebar list-unstyled sidebar-menu">
         <div class="standard-sidebar-section">
             <div class="standard-sidebar-label"></div>
-            <!-- <a class="navbar-brand navbar-home mb-3" href="/app"
-                style="border-bottom: 1px solid #eee; margin-right: 0; width: 100%;">
-                <img class="app-logo" style="width: 125px; min-height: 50px !important;"
-                    src="{{ frappe.boot.app_logo_url }}">
-            </a> -->
             <a href="/app/user" class="standard-sidebar-item mb-2" style="border-bottom: 1px solid #eee;">
                 <span>
+                    {% if frappe.boot.user_info[frappe.session.user].image %}
                     <img src="{{ frappe.boot.user_info[frappe.session.user].image }}"
-                        width="30" /
-                        style="border-radius: 50%;">
-                    <svg class="icon  icon-lg">
-                        <use></use>
-                    </svg>
+                        width="30" style="border-radius: 50%;">
+                    {% else %}
+                        <img src="/assets/mosyerdesign/img/avatar-alt.jpg"
+                        width="30" style="border-radius: 50%;">
+                    {% endif %}
                 </span>
                 <span class="sidebar-item-label"> {{ frappe.session.user_fullname }}<span>
                 <p class="text-muted" style="font-size: 12px; margin-bottom:0"> {{frappe.session.user_email}}</p>
@@ -26,7 +22,7 @@
                         <use class="" href="#icon-{{doc.icon}}"></use>
                     </svg>
                 </span>
-                <span class="sidebar-item-label">{{doc.label}}<span>
+                <span class="sidebar-item-label">{{__(doc.label)}}<span>
                     </span></span>
             </a>
             {% endfor %}
@@ -34,13 +30,13 @@
     </div>
 
     <div class="nav-item dropdown dropdown-navbar-user dropdown-mobile mb-2">
-        <a class="nav-link" style="padding: 0.5rem; margin-top: 10px;" data-toggle="dropdown" href="#" onclick="return false;">
+        <a class="nav-link" style="margin-top: 10px;" data-toggle="dropdown" href="#" onclick="return false;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
                 viewBox="0 0 16 16">
                 <path
                     d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
             </svg>
-            <span class="ml-2 settings" style="font-size: 18px;">Settings</span>
+            <span class="ml-2 settings" style="font-size: 18px;">{{__("Settings") }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" id="toolbar-user" role="menu">
             {% for item in frappe.boot.navbar_settings.settings_dropdown %}
@@ -63,20 +59,8 @@
     <div class="text-center support-img">
         <img src="/assets/mosyerdesign/img/support.jpg" alt="support image" style="width: 200px" />
     </div>
-     <a class="nav-link" style="padding: 0.5rem;" href="{{frappe.boot.navbar_settings.settings_dropdown[0].route }}">
-         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-             class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-             <path
-                 d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
-         </svg>
-        <span class="ml-2 user-account" style=" font-size: 18px">My Account</span>
-     </a>
-     <a class="toggler-btn text-muted" style="padding-left: 8px; position: relative;">
-         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-toggles"
-             viewBox="0 0 16 16">
-             <path
-                 d="M4.5 9a3.5 3.5 0 1 0 0 7h7a3.5 3.5 0 1 0 0-7h-7zm7 6a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm-7-14a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm2.45 0A3.49 3.49 0 0 1 8 3.5 3.49 3.49 0 0 1 6.95 6h4.55a2.5 2.5 0 0 0 0-5H6.95zM4.5 0h7a3.5 3.5 0 1 1 0 7h-7a3.5 3.5 0 1 1 0-7z" />
-         </svg>
-         <span class="tooltip-text">Toggle Sidebar</span>
-     </a>
 </div>
+<a class="toggler-btn text-muted" style="padding-left: 8px; position: relative;">
+    <img src="/assets/mosyerdesign/img/toggler.svg" />
+     <span class="sidebar-item-label" style="font-size:13px !important; margin-left: 10px;font-weight:600;">{{__("Toggle sidebar")}}</span>
+ </a>

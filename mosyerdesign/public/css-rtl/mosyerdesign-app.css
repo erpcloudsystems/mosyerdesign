@@ -121,7 +121,6 @@ a.desk-sidebar-item:hover {
 .dropdown-navbar-user{
     display: inline-block !important;
     padding: 2px !important;
-    text-align: center !important;
 }
 /* =========ShortCut========= */
 .grid-col-1{
@@ -129,6 +128,9 @@ a.desk-sidebar-item:hover {
 }
 .widget-title svg{
     fill: #fff !important;
+}
+.grid-col-3{
+    flex-wrap: wrap !important;
 }
 /* ================== */
 .list-row-head ,
@@ -259,6 +261,9 @@ a.toggler-btn:hover .tooltip-text{
     right: -15px !important;
     top: -10px !important;
 }
+.dashboard-widget-box{
+    min-width: 100% !important;
+}
 .justify-content-end {
     justify-content: flex-end !important;
 }
@@ -283,11 +288,22 @@ a.toggler-btn:hover .tooltip-text{
     display: flex !important;
 }
 /* =========== Notifications ============= */
-.attendance-notification:hover{
-    background-color: #eee;
+.notification-box{
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    margin-top: 10px;
+    padding:10px;
+    box-shadow: 0px 0px 9px rgb(0 0 0 / 7%);
 }
-.attendance-notification:hover svg{
-    fill: var(--purple-color) !important;
+.notification-box:hover{
+    background-color: var(--purple-color);
+    color: #fff;
+}
+.notification-box:hover h5,
+.notification-box:hover h6, 
+.notification-box:hover span{
+    color: #fff !important;
 }
 .layout-main-section-wrapper{
     padding-right: 0 !important;
@@ -296,6 +312,10 @@ a.toggler-btn:hover .tooltip-text{
 
 [data-page-route=Workspaces] .layout-main {
     height: calc(100vh - var(--navbar-height)- 5px) !important;
+}
+/* ========= Attendance State ======== */
+.attendance-state{
+    padding-bottom: 15px;
 }
 /* ======== Media Query ======== */
 @media only screen and (min-width: 992px) {
@@ -316,7 +336,6 @@ a.toggler-btn:hover .tooltip-text{
         margin-top: 8px !important;
     }
 }
-
 /* html[dir="rtl"] div.layout-side-section{
     padding-right: 15px !important;
     padding-left: 0 !important;
@@ -335,9 +354,14 @@ html[dir="rtl"] a.standard-sidebar-item>span>img{
     margin-right: 0;
 }
 html[dir="rtl"] div.actions-btn{
-    order: -5 !important;
-    justify-content: flex-start !important;
+    margin-right: auto !important;
 }
-html[dir="rtl"] button[data-label="CustomizeCustomize"]{
-    display: none !important;
+html[dir="rtl"] div.layout-side-section{
+    margin-left: 15px !important;
+}
+html[dir="rtl"] a.toggler-btn{
+    right: 15px;
+}
+html[dir="rtl"] div.dropdown-navbar-user{
+    text-align: right !important;
 }

@@ -5,12 +5,17 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "enable",
   "sidebar_items_section",
   "doctypes",
   "homepage_shortcuts_section",
-  "home_shortcuts",
+  "system_admin_shortcuts",
+  "hr_manager_shortcuts",
+  "hr_user_shortcuts",
   "homepage_dashboard_charts_section",
-  "home_charts"
+  "home_charts",
+  "notification_section",
+  "notifications"
  ],
  "fields": [
   {
@@ -18,12 +23,6 @@
    "fieldtype": "Table",
    "label": "Doctypes",
    "options": "Doctype Table"
-  },
-  {
-   "fieldname": "home_shortcuts",
-   "fieldtype": "Table",
-   "label": "Home Shortcuts",
-   "options": "Home Shortcuts Table"
   },
   {
    "fieldname": "home_charts",
@@ -45,12 +44,48 @@
    "fieldname": "homepage_dashboard_charts_section",
    "fieldtype": "Section Break",
    "label": "Homepage Dashboard Charts"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable",
+   "fieldtype": "Check",
+   "label": "Enable",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hr_user_shortcuts",
+   "fieldtype": "Table",
+   "label": "HR User Shortcuts",
+   "options": "HR User Shortcuts Table"
+  },
+  {
+   "fieldname": "system_admin_shortcuts",
+   "fieldtype": "Table",
+   "label": "System Admin Shortcuts",
+   "options": "System Admin Shortcuts Table"
+  },
+  {
+   "fieldname": "hr_manager_shortcuts",
+   "fieldtype": "Table",
+   "label": "HR Manager Shortcuts",
+   "options": "HR Manager Shortcuts Table"
+  },
+  {
+   "fieldname": "notification_section",
+   "fieldtype": "Section Break",
+   "label": "Notification"
+  },
+  {
+   "fieldname": "notifications",
+   "fieldtype": "Table",
+   "label": "Notifications",
+   "options": "Notifications Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-03-21 11:54:19.336220",
+ "modified": "2022-03-28 12:10:41.217774",
  "modified_by": "Administrator",
  "module": "Mosyerdesign",
  "name": "System Controller",

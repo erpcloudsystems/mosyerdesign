@@ -135,9 +135,9 @@ home_page = "login"
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "mosyerdesign.event.get_events"
-# }
+override_whitelisted_methods = {
+	"frappe.desk.desktop.get_desktop_page": "mosyerdesign.desktop.get_desktop_page"
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
