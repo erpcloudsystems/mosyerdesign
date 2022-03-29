@@ -52,6 +52,19 @@ span.count{
     height: 30px !important;
 }
 /* ========= SideBar ========= */
+.list-sidebar, .overlay-sidebar{
+    background-color: #fff !important;
+    margin-top: 0px !important;
+    padding-top: 10px !important;
+    padding-bottom: 20px !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    position: relative !important;
+    overflow-y: visible !important;
+    margin-right: 0 !important;
+    transition: all .3s ease-in-out !important;
+    width: 100% !important;
+}
 .standard-sidebar-item>span>img{
     width: 30px; 
     border-radius: 50%;
@@ -66,26 +79,23 @@ a.desk-sidebar-item:hover {
     font-size: 18px !important;
 }
 .layout-side-section{
-    background-color: #fff !important;
     margin-top: 0px !important;
-    padding-top: 10px !important;
+    padding-top: 0 !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
-    position: relative !important;
-    overflow-y: visible !important;
     margin-right: 0 !important;
-    height: calc(100vh - 63px) !important;
     transition: all .3s ease-in-out !important;
 }
+
 .standard-sidebar-label,
 .widget-group-title {
     display: none !important;
 }
-.standard-sidebar-section {
+/* .standard-sidebar-section {
     overflow-y: auto !important;
     height: 400px !important;
     max-height: 400px !important;
-}
+} */
 .desk-sidebar{
     border-bottom: 1px solid var(--gray-color) !important;
 }
@@ -98,7 +108,10 @@ a.desk-sidebar-item:hover {
     margin-top: 120px !important;
 }
 /* ========= Nav Bar ========= */
-
+.navbar-collapse>form{
+    margin-left: 0!important;
+    margin-right: -4px !important;
+}
 #navbar-search{
     height: 50px !important;
     background-color: #f9fafa8f !important;
@@ -121,6 +134,7 @@ a.desk-sidebar-item:hover {
 .dropdown-navbar-user{
     display: inline-block !important;
     padding: 2px !important;
+    text-align: left !important;
 }
 /* =========ShortCut========= */
 .grid-col-1{
@@ -145,23 +159,15 @@ a.desk-sidebar-item:hover {
     color: var(--purple-color) !important;
     background-color: transparent !important;
 }
-span.remove{
-    position: absolute;
-    right:5px;
-    left: auto;
-    cursor: pointer;
-}
-.justify-content-end{
-    justify-content: flex-end !important;
-}
 /* ======== Toggler Btn ========= */
 .hidden{
     display: none !important;
 }
 a.toggler-btn{
     position: absolute !important;
-    bottom: 40px;
+    bottom: 0px !important;
     width: 100%;
+    left: 15px;
 }
 .toggle-sidebar-btn{
     display: flex !important;
@@ -189,6 +195,11 @@ a.toggler-btn:hover .tooltip-text{
     display: flex !important;
     justify-content: center !important;
 }
+.toggle-sidebar div.form-sidebar-stats {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: column !important;
+}
 .toggle-sidebar div.standard-sidebar-section{
     display: flex;
     align-items: center;
@@ -196,6 +207,16 @@ a.toggler-btn:hover .tooltip-text{
 }
 .toggle-sidebar .standard-sidebar-item>span>img{
     margin-right: 0;
+}
+.toggle-sidebar .dropdown-navbar-user,
+.toggle-sidebar .toggler-btn,
+.toggle-sidebar .nav-user-account{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.toggle-sidebar .toggler-btn{
+    left: 0 !important;
 }
 .user-settings-list{
     min-width: 100px !important;
@@ -242,10 +263,6 @@ a.toggler-btn:hover .tooltip-text{
 .leave-status {
     background-color: var(--purple-color);
 }
-
-/* button[data-label="CustomizeCustomize"]{
-    display: none !important;
-} */
 .shortcut-boxes{
     display: flex;
     align-items: center;
@@ -254,9 +271,6 @@ a.toggler-btn:hover .tooltip-text{
 .status-box-body svg {
     stroke: #fff !important;
 }
-/* .desk-page div.widget-group:last-child{
-    display: none !important;
-} */
 .widget.dashboard-widget-box .widget-control{
     right: -15px !important;
     top: -10px !important;
@@ -266,9 +280,6 @@ a.toggler-btn:hover .tooltip-text{
 }
 .justify-content-end {
     justify-content: flex-end !important;
-}
-.actions-btn{
-    order: 5 !important;
 }
 .widget.shortcut-widget-box{
     width: 200px !important;
@@ -317,10 +328,21 @@ a.toggler-btn:hover .tooltip-text{
 .attendance-state{
     padding-bottom: 15px;
 }
+/* ======== Language Switcher ========== */
+.lang-list{
+    min-width: 70px;
+    top: 30px;
+    left: -25px;
+    transition: all .3s linear;
+}
 /* ======== Media Query ======== */
 @media only screen and (min-width: 992px) {
     .show-sidebar-toggle{
         display: none !important;
+    }
+    [data-page-route=Workspaces] .layout-main .layout-main-section-wrapper,
+    [data-page-route=Workspaces] .layout-main .layout-side-section {
+        height: auto !important;
     }
 }
 @media only screen and (max-width: 992px) {
@@ -336,11 +358,10 @@ a.toggler-btn:hover .tooltip-text{
         margin-top: 8px !important;
     }
 }
-/* html[dir="rtl"] div.layout-side-section{
-    padding-right: 15px !important;
-    padding-left: 0 !important;
-} */
-
+/* ========== AR Direction ========== */
+html[dir="rtl"] body{
+    overflow-x: hidden !important;
+}
 html[dir="rtl"] span.remove{
     position: absolute;
     right:auto;
@@ -350,7 +371,7 @@ html[dir="rtl"] span.remove{
 html[dir="rtl"] a.standard-sidebar-item>span>img{
     width: 30px; 
     border-radius: 50%;
-    margin-left: 27px;
+    margin-left: 0;
     margin-right: 0;
 }
 html[dir="rtl"] div.actions-btn{

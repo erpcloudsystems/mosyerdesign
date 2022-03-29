@@ -13,7 +13,7 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
     $(`<div class="standard-sidebar-label">${__(title)}</div>`)
         .appendTo(sidebar_section);
 
-    const avatar = `<a href="/app/user/${frappe.session.user_email}" class="desk-sidebar-item standard-sidebar-item " style="border-bottom: 1px solid #eee;">
+    const avatar = `<a href="/app/user" class="standard-sidebar-item " style="border-bottom: 1px solid #eee;">
                         <span>
                             <img src= "${ frappe.boot.user_info[frappe.session.user].image ? frappe.boot.user_info[frappe.session.user].image : '/assets/mosyerdesign/img/avatar-alt.jpg' }"
                             / >
@@ -44,7 +44,7 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
                         <div class="nav-item dropdown dropdown-navbar-user dropdown-mobile mb-2">
                             <a class="nav-link" style="padding-left:12px; margin-top: 10px;" data-toggle="dropdown"
                             href="#" onclick="return false;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-three-dots"
                                     viewBox="0 0 16 16">
                                     <path
                                         d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
@@ -58,15 +58,15 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
                         </div>
                         `
     const userAccount = `
-                         <a class="nav-link"padding-left:12px" href="${frappe.boot.navbar_settings.settings_dropdown[0].route }">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                         <a class="nav-link nav-user-account" href="${frappe.boot.navbar_settings.settings_dropdown[0].route }">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
                                 <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
                             </svg>
                             <span class="ml-2 user-account" style="font-size: 18px;">${__("My Account")}</span>
                         </a>
                         `
     const toggleBtn = `
-                        <a class="toggler-btn text-muted" position: relative;">
+                        <a class="toggler-btn text-muted">
                             <img src="/assets/mosyerdesign/img/toggler.svg" />
                             <span class="sidebar-item-label" style="font-size:13px !important; margin-left: 10px; font-weight:600;transition: all .3s ease-in-out !important;">${__("Toggle sidebar")}</span>
                         </a>

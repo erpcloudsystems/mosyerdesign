@@ -32,4 +32,12 @@ $(document).ready(function(){
         
     // }
     // getEmployeeAttendance()
+    $(".lang-switcher").on('click', function (e) {
+        if (frappe.boot.lang !== $(e.target).attr("data-lang")) {
+            frappe.db.set_value("User", frappe.session.user, "language", $(e.target).attr("data-lang"))
+                .then(() => {
+                    location.reload();
+                })
+        }
+    });
 });
