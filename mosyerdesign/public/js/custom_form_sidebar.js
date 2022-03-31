@@ -10,6 +10,8 @@ frappe.ui.form.Sidebar.prototype.make = function(){
         
         this.sidebar.find('a.toggler-btn').on('click', () => {
             $('.layout-side-section').toggleClass('toggle-sidebar');
+            $('.nav-app-logo').toggle();
+            $('.cus-app-logo').toggleClass('hidden');
             $('.sidebar-item-label').toggleClass('hidden');
             $('.user-account').toggleClass('hidden');
             $('.settings').toggleClass('hidden');

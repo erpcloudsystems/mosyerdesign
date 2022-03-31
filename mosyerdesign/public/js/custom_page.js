@@ -4,7 +4,10 @@ frappe.ui.Page.prototype.add_main_section = function(){
         $(frappe.render_template("page", {})).appendTo(this.wrapper);
         let pageActions = `
                             <div class="container-fluid flex page-actions row my-4 justify-content-between">
-                                <div class="col-md-6 col-xs-12 flex widget-boxs justify-content-between"></div>
+                                <div class="col-md-2 col-xs-4 flex fill-width title-area">
+                                    <h3 class="ellipsis title-text"></h3>
+                                </div>
+                                <div class="col-md-5 col-xs-6 flex widget-boxs justify-content-between"></div>
                                 <!-- buttons -->
                                 <div class="col-md-5 col-xs-12 actions-btn flex justify-content-end">
                                     <div class="custom-actions hide hidden-xs hidden-md"></div>

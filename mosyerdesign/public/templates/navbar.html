@@ -1,18 +1,16 @@
 <header class="navbar navbar-expand sticky-top" role="navigation">
 	<div class="container-fluid row" style="padding: 0 27px;">
-		<div class="col-lg-2 flex align-items-center justify-content-between" style="padding-left: 0;padding-right: 0;">
-			<a class="navbar-brand navbar-home" href="/app" style="flex: 1;">
+		<div class="col-lg-2 flex align-items-center justify-content-between" style="padding-left: 0; padding-right: 0;">
+			<a class="navbar-brand navbar-home nav-app-logo" href="/app" style="flex: 1;">
 				<img class="app-logo" style="width: 125px; min-height: 50px;" src="{{ frappe.boot.app_logo_url }}">
 			</a>
-			<div class="page-head show-sidebar-toggle" style="background-color: transparent; position: static;">
+			<a class="navbar-brand navbar-home cus-app-logo hidden" href="/app" style="flex: 1;">
+				<img class="app-logo" src="/assets/mosyerdesign/img/mosyrlogo.png">
+			</a>
+			<div class="page-head show-sidebar-toggle small-nav" style="background-color: transparent !important; box-shadow: none; position: static;">
 				<span class="sidebar-toggle-btn">
-					<span class="sidebar-toggle-icon">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggles class="
-							icon icon-md sidebar-toggle-placeholder""
-							viewBox="0 0 16 16">
-							<path
-								d="M4.5 9a3.5 3.5 0 1 0 0 7h7a3.5 3.5 0 1 0 0-7h-7zm7 6a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm-7-14a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm2.45 0A3.49 3.49 0 0 1 8 3.5 3.49 3.49 0 0 1 6.95 6h4.55a2.5 2.5 0 0 0 0-5H6.95zM4.5 0h7a3.5 3.5 0 1 1 0 7h-7a3.5 3.5 0 1 1 0-7z" />
-						</svg>
+					<span class="sidebar-toggle-icons">
+						<img src="/assets/mosyerdesign/img/toggler.svg" alt="toggler" style="min-width: 16px; cursor: pointer;" />	
 					</span>
 				</span> 
 			</div>
@@ -55,8 +53,7 @@
 							</div>
 						</div>
 					</li>
-
-					
+					<!--===== switcher Language =======-->
 					<li class="nav-item dropdown dropdown-lang dropdown-mobile lang-li">
 						<a class="lang-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
 							href="#"
@@ -69,21 +66,18 @@
 						</a>
 						<ul class="dropdown-menu lang-list" role="menu">
 							<li>
-								<a href="#" onclick="return false;" class="nav-link lang-switcher" data-lang="ar" style="padding: 5px 8px;">
-									<img src="/assets/mosyerdesign/img/ar.png" alt="ar" style="width: 20px;"> {%= __("Ar") %}
+								<a href="#" onclick="return false;" class="nav-link lang-switcher" data-lang="ar" style="padding: 5px 8px; color: #885af8; font-weight: 700; display: flex; align-items: center; justify-content: space-around;">
+									<img src="/assets/mosyerdesign/img/ar.png" alt="ar" style="width: 20px;"> Ar
 								</a>
 							</li>
 							<li>
-								<a href="#" onclick="return false;" class="nav-link lang-switcher" data-lang="en" style="padding: 5px 8px;">
-									<img src="/assets/mosyerdesign/img/en.png" alt="en" style="width: 20px;"> {%= __("En") %}
+								<a href="#" onclick="return false;" class="nav-link lang-switcher" data-lang="en" style="padding: 5px 8px; color: #885af8; font-weight: 700; display: flex; align-items: center; justify-content: space-around;">
+									<img src="/assets/mosyerdesign/img/enn.png" alt="en" style="width: 20px;"> En
 								</a>
 							</li>
 						</ul>
 					</li>
-
-
-
-
+					<!--===== End switcher Language =======-->
 					<li class="nav-item dropdown dropdown-message dropdown-mobile hidden">
 						<a class="nav-link notifications-icon text-muted" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="true" href="#" onclick="return false;">

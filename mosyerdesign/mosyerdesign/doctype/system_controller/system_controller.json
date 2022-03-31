@@ -8,6 +8,7 @@
   "enable",
   "sidebar_items_section",
   "doctypes",
+  "reports",
   "homepage_shortcuts_section",
   "system_admin_shortcuts",
   "hr_manager_shortcuts",
@@ -80,12 +81,18 @@
    "fieldtype": "Table",
    "label": "Notifications",
    "options": "Notifications Table"
+  },
+  {
+   "fieldname": "reports",
+   "fieldtype": "Table",
+   "label": "Reports",
+   "options": "Reports Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-03-28 12:10:41.217774",
+ "modified": "2022-03-31 10:17:34.008646",
  "modified_by": "Administrator",
  "module": "Mosyerdesign",
  "name": "System Controller",

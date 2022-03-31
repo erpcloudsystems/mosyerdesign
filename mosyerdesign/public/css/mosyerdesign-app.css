@@ -59,11 +59,9 @@ span.count{
     padding-bottom: 20px !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
-    position: relative !important;
-    overflow-y: visible !important;
+    overflow-y: scroll !important;
     margin-right: 0 !important;
     transition: all .3s ease-in-out !important;
-    width: 100% !important;
 }
 .standard-sidebar-item>span>img{
     width: 30px; 
@@ -85,6 +83,7 @@ a.desk-sidebar-item:hover {
     padding-left: 0 !important;
     margin-right: 0 !important;
     transition: all .3s ease-in-out !important;
+    overflow-y: auto !important;
 }
 
 .standard-sidebar-label,
@@ -102,7 +101,21 @@ a.desk-sidebar-item:hover {
 .support-img{
     margin-top: 120px !important;
 }
+.sidebar-reports{
+    border-top: 1px solid #eee;
+}
+.sidebar-reports h5{
+    color: var(--purple-color);
+    text-align: center;
+    font-style: italic;
+    padding: 5px 0;
+}
 /* ========= Nav Bar ========= */
+.cus-app-logo img{
+    width: 45px;
+    min-height: 45px;
+    margin-left: 15px;
+}
 .navbar-collapse>form{
     margin-left: -4px !important;
 }
@@ -130,7 +143,16 @@ a.desk-sidebar-item:hover {
     padding: 2px !important;
     text-align: left !important;
 }
-/* =========ShortCut========= */
+/* ========= Title Page ======== */
+.title-area{
+    padding-left: 0 !important;
+}
+h3.title-text{
+    color: var(--purple-color) !important;
+    margin-bottom: 5px !important;
+    cursor: pointer;
+}
+/* ========= ShortCut ========= */
 .grid-col-1{
     grid-template-columns: none !important;
 }
@@ -158,10 +180,8 @@ a.desk-sidebar-item:hover {
     display: none !important;
 }
 a.toggler-btn{
-    position: absolute !important;
-    bottom: 0px !important;
-    width: 100%;
-    left: 15px;
+    display: block !important;
+    margin-top: 20px !important;
 }
 .toggle-sidebar-btn{
     display: flex !important;
@@ -300,6 +320,7 @@ a.toggler-btn:hover .tooltip-text{
     margin-top: 10px;
     padding:10px;
     box-shadow: 0px 0px 9px rgb(0 0 0 / 7%);
+    transition: all .2s ease-in-out;
 }
 .notification-box:hover{
     background-color: var(--purple-color);
@@ -324,32 +345,46 @@ a.toggler-btn:hover .tooltip-text{
 }
 /* ======== Language Switcher ========== */
 .lang-list{
-    min-width: 70px;
+    min-width: 80px;
     top: 30px;
-    left: -25px;
+    left: -30px;
     transition: all .3s ease-in-out;
+}
+.lang-list li {
+    transition: all .3s ease-in;
+}
+.lang-list li:hover {
+    background-color: var(--purple-color);
+}
+.lang-list li:hover a {
+    color: #fff !important;
+}
+.small-nav{
+    padding-right: 15px !important;
 }
 /* ======== Media Query ======== */
 @media only screen and (min-width: 992px) {
     .show-sidebar-toggle{
         display: none !important;
     }
-    [data-page-route=Workspaces] .layout-main .layout-main-section-wrapper,
+    /* [data-page-route=Workspaces] .layout-main .layout-main-section-wrapper,
     [data-page-route=Workspaces] .layout-main .layout-side-section {
         height: auto !important;
-    }
+    } */
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 991px) {
     a.toggler-btn {
         display: none !important;
     }
-    .layout-side-section {
-        height: auto !important;
+    .lang-list {
+        left: -60px;
     }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
     .actions-btn {
         margin-top: 8px !important;
     }
+    div.widget-group-body.grid-col-3{
+        justify-content: center !important;
+    }
 }
-

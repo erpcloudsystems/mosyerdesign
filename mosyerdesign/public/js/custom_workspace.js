@@ -1,6 +1,3 @@
-import Widget from "../../../../frappe/frappe/public/js/frappe/widgets/base_widget";
-
-console.log(frappe.boot.doc_notification, 'ssa');
 
 frappe.views.Workspace.prototype.make_sidebar = function () {
     this.build_sidebar_section('category', frappe.boot.allowed_doctypes);
@@ -10,8 +7,7 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
 
     // DO NOT REMOVE: Comment to load translation
     // __("Modules") __("Domains") __("Places") __("Administration")
-    $(`<div class="standard-sidebar-label">${__(title)}</div>`)
-        .appendTo(sidebar_section);
+    $(`<div class="standard-sidebar-label">${__(title)}</div>`).appendTo(sidebar_section);
 
     const avatar = `<a href="/app/user" class="standard-sidebar-item " style="border-bottom: 1px solid #eee;">
                         <span>
@@ -71,7 +67,6 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
                             <span class="sidebar-item-label" style="font-size:13px !important; margin-left: 10px; font-weight:600;transition: all .3s ease-in-out !important;">${__("Toggle sidebar")}</span>
                         </a>
                         `
-    
     sidebar_section.prepend(avatar)
     $('.overlay-sidebar').append(userSettings)
     $('.overlay-sidebar').append(supportImg)
@@ -102,6 +97,24 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
 
     items.forEach(item => make_sidebar_category_item(item));
     sidebar_section.appendTo(this.sidebar);
+
+	// Render Reports
+	const get_sidebar_report = function(report){
+			return $(`
+				<a href="/app/query-report/${report.name}"
+					class="desk-sidebar-item standard-sidebar-item" >
+					<span>${frappe.utils.icon(report.icon || "folder-normal", "lg")}</span>
+					<span class="sidebar-item-label">${__(report.label) || __(report.name)}<span>
+				</a>
+			`);
+	}
+	if (frappe.boot.reports.length){
+		this.sidebar.append(`<div class="sidebar-reports"> <h5> Reports </h5> </div>`)
+		frappe.boot.reports.forEach(report => {
+			let $report = get_sidebar_report(report)
+			$('div.sidebar-reports').append($report)
+	})
+}
 }
 frappe.views.Workspace.prototype.make_page = function(page){
     const $page = new CustomDesktopPage({
