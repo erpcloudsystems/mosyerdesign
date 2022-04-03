@@ -50,7 +50,7 @@ span.count{
 .svg-size{
     width: 30px !important;
     height: 30px !important;
-}
+}  
 /* ========= SideBar ========= */
 .list-sidebar, .overlay-sidebar{
     background-color: #fff !important;
@@ -59,7 +59,6 @@ span.count{
     padding-bottom: 20px !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
-    overflow-y: scroll !important;
     margin-right: 0 !important;
     transition: all .3s ease-in-out !important;
 }
@@ -104,11 +103,54 @@ a.desk-sidebar-item:hover {
 .sidebar-reports{
     border-top: 1px solid #eee;
 }
+.sidebar-reports.sm-nav{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .sidebar-reports h5{
     color: var(--purple-color);
     text-align: center;
     font-style: italic;
     padding: 5px 0;
+}
+.toggle-sidebar{
+    max-width: 100px !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+.toggle-sidebar>div{
+    width: 100%;
+}
+.toggle-sidebar div.form-sidebar-stats {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: column !important;
+}
+.toggle-sidebar div.standard-sidebar-section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.toggle-sidebar .standard-sidebar-item>span>img{
+    margin-right: 0;
+}
+.toggle-sidebar .dropdown-navbar-user,
+.toggle-sidebar .nav-user-account{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.user-settings-list{
+    min-width: 100px !important;
+    max-width: 120px !important;
+}
+.dropdown-menu-right{
+    transition: all .3s ease-in-out !important;
+}
+.dropdown-menu-right>a:hover {
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
 }
 /* ========= Nav Bar ========= */
 .cus-app-logo img{
@@ -180,8 +222,9 @@ h3.title-text{
     display: none !important;
 }
 a.toggler-btn{
-    display: block !important;
-    margin-top: 20px !important;
+    display: block;
+    margin-top: 20px;
+    padding-left: 15px;
 }
 .toggle-sidebar-btn{
     display: flex !important;
@@ -201,44 +244,9 @@ a.toggler-btn{
     z-index: 999999999999;
     text-align: center;
 }
-a.toggler-btn:hover .tooltip-text{
-    visibility: visible;
-}
-.toggle-sidebar{
-    max-width: 100px !important;
-    display: flex !important;
-    justify-content: center !important;
-}
-.toggle-sidebar div.form-sidebar-stats {
-    display: flex !important;
-    align-items: center !important;
-    flex-direction: column !important;
-}
-.toggle-sidebar div.standard-sidebar-section{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.toggle-sidebar .standard-sidebar-item>span>img{
-    margin-right: 0;
-}
-.toggle-sidebar .dropdown-navbar-user,
-.toggle-sidebar .toggler-btn,
-.toggle-sidebar .nav-user-account{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-.toggle-sidebar .toggler-btn{
-    left: 0 !important;
-}
-.user-settings-list{
-    min-width: 100px !important;
-    max-width: 120px !important;
-}
-.toggler-btn-sm{
-    width: 90px;
-    margin: 0 auto;
+.toggle-side-sm-btn{
+    padding: 0 !important;
+    text-align: center;
 }
 /* ========== Page Btn ========= */
 .sort-selector{
@@ -367,14 +375,13 @@ a.toggler-btn:hover .tooltip-text{
     .show-sidebar-toggle{
         display: none !important;
     }
-    /* [data-page-route=Workspaces] .layout-main .layout-main-section-wrapper,
-    [data-page-route=Workspaces] .layout-main .layout-side-section {
-        height: auto !important;
-    } */
 }
 @media only screen and (max-width: 991px) {
     a.toggler-btn {
         display: none !important;
+    }
+    .cus-app-logo{
+        display: none;
     }
     .lang-list {
         left: -60px;

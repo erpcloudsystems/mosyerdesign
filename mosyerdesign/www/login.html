@@ -21,8 +21,9 @@
 </div>
 
 <div class="page-card-actions">
-	<button class="btn btn-sm btn-block btn-login" type="submit">
-		{{ _("Sign In") }}</button>
+	<button class="btn btn-sm btn-block btn-login flex align-items-center justify-content-center" type="submit">
+		{{ _("Sign In") }}
+	</button>
 
 	{% if ldap_settings and ldap_settings.enabled %}
 	<button class="btn btn-sm btn-default btn-block btn-login btn-ldap-login">

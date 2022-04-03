@@ -21,7 +21,7 @@ app_include_js = "/assets/mosyerdesign/js/mosyerdesign.min.js"
 
 # include js, css files in header of web template
 web_include_css = "/assets/mosyerdesign/css/mosyerdesign-web.css"
-# web_include_js = "/assets/mosyerdesign/js/mosyerdesign.js"
+# web_include_js = "/assets/mosyerdesign/js/mosyerdesign-web.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "mosyerdesign/public/scss/website"

@@ -59,7 +59,6 @@ span.count{
     padding-bottom: 20px !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
-    overflow-y: scroll !important;
     margin-right: 0 !important;
     transition: all .3s ease-in-out !important;
 }
@@ -100,6 +99,27 @@ a.desk-sidebar-item:hover {
 }
 .support-img{
     margin-top: 120px !important;
+}
+.sidebar-reports{
+    border-top: 1px solid #eee;
+}
+.sidebar-reports.sm-nav{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.sidebar-reports h5{
+    color: var(--purple-color);
+    text-align: center;
+    font-style: italic;
+    padding: 5px 0;
+}
+.dropdown-menu-right{
+    transition: all .3s ease-in-out !important;
+}
+.dropdown-menu-right>a:hover {
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
 }
 /* ========= Nav Bar ========= */
 .navbar-collapse>form{
@@ -165,12 +185,6 @@ h3.title-text{
 .hidden{
     display: none !important;
 }
-/* a.toggler-btn{
-    position: absolute !important;
-    bottom: 0px !important;
-    width: 100%;
-    left: 15px;
-} */
 .toggle-sidebar-btn{
     display: flex !important;
     align-items: center !important;
@@ -189,13 +203,13 @@ h3.title-text{
     z-index: 999999999999;
     text-align: center;
 }
-a.toggler-btn:hover .tooltip-text{
-    visibility: visible;
-}
 .toggle-sidebar{
     max-width: 100px !important;
     display: flex !important;
     justify-content: center !important;
+}
+.toggle-sidebar>div{
+    width: 100%;
 }
 .toggle-sidebar div.form-sidebar-stats {
     display: flex !important;
@@ -211,22 +225,29 @@ a.toggler-btn:hover .tooltip-text{
     margin-right: 0;
 }
 .toggle-sidebar .dropdown-navbar-user,
-.toggle-sidebar .toggler-btn,
 .toggle-sidebar .nav-user-account{
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 }
-.toggle-sidebar .toggler-btn{
-    left: 0 !important;
-}
 .user-settings-list{
     min-width: 100px !important;
     max-width: 120px !important;
 }
-.toggler-btn-sm{
-    width: 90px;
-    margin: 0 auto;
+.toggle-side-sm-btn{
+    padding: 0 !important;
+    text-align: center;
+}
+/* ========== Page Btn ========= */
+.sort-selector{
+    display: none !important;
+}
+.page-actions .btn:not(.icon-btn){
+    height: auto !important;
+    padding: 8px 15px !important;
+}
+.standard-actions{
+    align-items: center !important;
 }
 /* ========== Employee Status Boxes =========== */
 .status-box{
@@ -320,13 +341,6 @@ a.toggler-btn:hover .tooltip-text{
 .attendance-state{
     padding-bottom: 15px;
 }
-/* ======== Language Switcher ========== */
-html[dir="rtl"] .lang-list{
-    min-width: 80px;
-    top: 30px;
-    left: -30px;
-    transition: all .3s linear;
-}
 /* ======== Media Query ======== */
 @media only screen and (min-width: 992px) {
     .show-sidebar-toggle{
@@ -337,8 +351,8 @@ html[dir="rtl"] .lang-list{
     a.toggler-btn {
         display: none !important;
     }
-    .lang-list {
-        left: -60px;
+    .cus-app-logo{
+        display: none;
     }
     html[dir="rtl"] .lang-list{
         left: 0;
@@ -378,7 +392,9 @@ html[dir="rtl"] div.layout-side-section{
     margin-left: 15px !important;
 }
 html[dir="rtl"] a.toggler-btn{
-    right: 15px;
+    display: block;
+    margin-top: 20px;
+    padding-right: 15px;
 }
 html[dir="rtl"] div.dropdown-navbar-user{
     text-align: right !important;
@@ -386,3 +402,23 @@ html[dir="rtl"] div.dropdown-navbar-user{
 html[dir="rtl"] .small-nav{
     padding-left: 15px !important;
 }
+/* ======== Language Switcher ========== */
+html[dir="rtl"] .lang-list{
+    min-width: 80px;
+    top: 30px;
+    left: 0px;
+    transition: all .3s linear;
+}
+html[dir="rtl"] .lang-list li {
+    transition: all .3s ease-in;
+}
+html[dir="rtl"] .lang-list li:hover {
+    background-color: var(--purple-color);
+}
+html[dir="rtl"] .lang-list li:hover a {
+    color: #fff !important;
+}
+html[dir="rtl"] .sidebar-reports>h5{
+    font-size: 18px !important;
+}
+

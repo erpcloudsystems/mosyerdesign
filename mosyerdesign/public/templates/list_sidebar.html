@@ -28,7 +28,7 @@
             <!-- Adding Reports In Sidebar  -->
             {% if frappe.boot.reports.length %}
                 <div class="sidebar-reports">
-                    <h5> Reports </h5>
+                    <h5> {{__("Reports")}} </h5>
                     {% for report in frappe.boot.reports %}
                         <a href="/app/query-report/{{report.name}}" class="desk-sidebar-item standard-sidebar-item" >
                             <span>{{frappe.utils.icon(report.icon || "folder-normal", "lg")}}</span>
@@ -71,7 +71,7 @@
         <img src="/assets/mosyerdesign/img/support.jpg" alt="support image" style="width: 200px" />
     </div>
 </div>
-<a class="toggler-btn text-muted" style="padding-left: 8px;">
+<a class="toggler-btn text-muted">
     <img src="/assets/mosyerdesign/img/toggler.svg" />
      <span class="sidebar-item-label" style="font-size:13px !important; margin-left: 10px;font-weight:600;">{{__("Toggle sidebar")}}</span>
  </a>
