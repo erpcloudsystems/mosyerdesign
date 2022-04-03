@@ -8,6 +8,10 @@
     --red-color: #f6685b;
     --yellow-color: #ffb946;
 }
+::selection{
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
 .btn-primary{
     border-radius: 6px !important;
     background-color: var(--purple-color) !important;
@@ -15,6 +19,15 @@
 .btn-purple{
     background-color: var(--purple-color) !important;
     color: #fff;
+}
+.btn-default:hover,
+.btn-primary:hover{
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
+.btn-default:hover .icon,
+.btn-primary:hover .icon {
+    stroke: #fff !important;
 }
 .active{
     color: var(--purple-color) !important;
@@ -117,7 +130,18 @@ a.desk-sidebar-item:hover {
 .dropdown-menu-right{
     transition: all .3s ease-in-out !important;
 }
+.dropdown-menu>li:hover .dropdown-item{    
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
+.dropdown-menu>li:hover .dropdown-item .icon{
+    stroke: #fff !important;
+}
 .dropdown-menu-right>a:hover {
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
+.dropdown-menu>a:hover{    
     background-color: var(--purple-color) !important;
     color: #fff !important;
 }
@@ -148,6 +172,17 @@ a.desk-sidebar-item:hover {
     display: inline-block !important;
     padding: 2px !important;
     text-align: left !important;
+}
+.dropdown-menu-right{
+    transition: all .3s ease-in-out !important;
+}
+ul.dropdown-menu>li:hover .dropdown-item{    
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
+.dropdown-menu-right>a:hover {
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
 }
 /* ========= Title Page ======== */
 .title-area{
@@ -337,9 +372,29 @@ h3.title-text{
 [data-page-route=Workspaces] .layout-main {
     height: calc(100vh - var(--navbar-height)- 5px) !important;
 }
-/* ========= Attendance State ======== */
+/* ======== Attendance State ======== */
 .attendance-state{
     padding-bottom: 15px;
+}
+/* ======== DocType Links  ======== */
+.document-link .document-link-badge{
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
+.document-link .document-link-badge>span{
+    color: var(--purple-color) !important;
+    background-color: #fff !important;
+}
+.document-link button{
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
+.document-link button .icon{
+    stroke: #fff !important;
+}
+input[type="checkbox"]:checked{
+    background-color: var(--purple-color) !important;
+    background-image: url("data:image/svg+xml, <svg viewBox='0 0 8 7' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1 4.00001L2.66667 5.80001L7 1.20001' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") !important;
 }
 /* ======== Media Query ======== */
 @media only screen and (min-width: 992px) {

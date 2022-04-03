@@ -8,6 +8,10 @@
     --red-color: #f6685b;
     --yellow-color: #ffb946;
 }
+::selection{
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
 .btn-primary{
     border-radius: 6px !important;
     background-color: var(--purple-color) !important;
@@ -15,6 +19,15 @@
 .btn-purple{
     background-color: var(--purple-color) !important;
     color: #fff;
+}
+.btn-default:hover,
+.btn-primary:hover{
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
+.btn-default:hover .icon,
+.btn-primary:hover .icon {
+    stroke: #fff !important;
 }
 .active{
     color: var(--purple-color) !important;
@@ -147,6 +160,13 @@ a.desk-sidebar-item:hover {
 }
 .dropdown-menu-right{
     transition: all .3s ease-in-out !important;
+}
+ul.dropdown-menu>li:hover .dropdown-item{    
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
+}
+ul.dropdown-menu>li:hover .dropdown-item .icon{
+    stroke: #fff !important;
 }
 .dropdown-menu-right>a:hover {
     background-color: var(--purple-color) !important;
@@ -350,6 +370,11 @@ a.toggler-btn{
 /* ========= Attendance State ======== */
 .attendance-state{
     padding-bottom: 15px;
+}
+/* =============================== */
+.document-link-badge{
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
 }
 /* ======== Language Switcher ========== */
 .lang-list{
