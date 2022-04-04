@@ -78,18 +78,12 @@ span.count{
     margin-right: 0 !important;
     transition: all .3s ease-in-out !important;
 }
-.standard-sidebar-item>span>img{
-    width: 30px; 
-    border-radius: 50%;
-    margin-right: 27px;
-    margin-left: 0;
-}
 a.desk-sidebar-item:hover {
     background-color: var(--purple-color) !important;
     color: #fff !important;
 }
 .sidebar-item-label{
-    font-size: 18px !important;
+    font-size: 20px !important;
 }
 .layout-side-section{
     margin-top: 0px !important;
@@ -99,6 +93,7 @@ a.desk-sidebar-item:hover {
     margin-right: 0 !important;
     transition: all .3s ease-in-out !important;
     overflow-y: auto !important;
+    box-shadow: 5px 0 7px -4px rgb(0 0 0 / 7%);
 }
 
 .standard-sidebar-label,
@@ -125,7 +120,8 @@ a.desk-sidebar-item:hover {
     flex-direction: column;
 }
 .sidebar-reports h5{
-    color: var(--purple-color);
+    background-color: var(--purple-color);
+    color:#fff;
     text-align: center;
     font-style: italic;
     padding: 5px 0;
@@ -211,6 +207,10 @@ h3.title-text{
 .level-item {
     color: var(--purple-color) !important;
     font-weight: 600 !important;
+    font-size: 16px !important;
+}
+.level-item>a{
+    font-size: 15px !important;
 }
 .indicator-pill.yellow{
     background-color: var(--yellow-color) !important;
@@ -438,7 +438,7 @@ html[dir="rtl"] .cus-app-logo img{
     margin-right: 15px;
 }
 html[dir="rtl"] a.standard-sidebar-item>span>img{
-    width: 30px; 
+    width: 46px; 
     border-radius: 50%;
     margin-left: 0;
     margin-right: 0;

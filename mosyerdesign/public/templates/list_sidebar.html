@@ -26,15 +26,13 @@
                     <span class="sidebar-item-label">{{ doc.label ? __(doc.label): __(doc.name)}}<span>
                 </a>
                 <div style="padding-right:5px; margin-left: 10px;">
-                    {% if doc.items.length %}
                     <button class="btn btn-default btn-sm dropdown-btn" data-toggle="dropdown" aria-expanded="false" data-original-title="Menu" style="box-shadow: none !important;">
                         <svg class="icon icon-xs"><use href="#icon-small-down"></use></svg>
                     </button>
-                    {% endif %}
                         <ul class="dropdown-menu dropdown-menu-right" style="overflow-x: hidden; max-height:450px"> 
                             {% for item in doc.items %}
                                 <li> 
-                                    <a href="/app/{{frappe.router.slug(doc.name)}}/{{ item }}" class="dropdown-item">{{ __(item) }}</a>
+                                    <a href="/app/{{frappe.router.slug(doc.name)}}/{{ item }}" class="dropdown-item" style="font-size:14px">{{ __(item) }}</a>
                                 </li>
                             {% endfor %}
                         </ul>
