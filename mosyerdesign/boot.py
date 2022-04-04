@@ -13,8 +13,10 @@ def get_allowed_doctypes():
     if len(system_controller.doctypes):
         for doctype in system_controller.doctypes:
             if frappe.has_permission(doctype=doctype.doctype_name, user=frappe.session.user):
+                lst = [d.name for d in frappe.get_list(doctype.doctype_name)]
                 allowed_doctypes.append({'name': doctype.doctype_name, 'category': doctype.category,
-                                        'icon': doctype.icon, 'label': doctype.label, 'module': doctype.module})
+                                        'icon': doctype.icon, 'label': doctype.label,
+                                        'module': doctype.module, 'items':lst})
     return allowed_doctypes
 
 def get_sidebar_reports():

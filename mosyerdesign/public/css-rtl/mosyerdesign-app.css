@@ -64,6 +64,9 @@ span.count{
     width: 30px !important;
     height: 30px !important;
 }
+.form-viewers{
+    display: none !important;
+}
 /* ========= SideBar ========= */
 .list-sidebar, .overlay-sidebar{
     background-color: #fff !important;
@@ -476,4 +479,6 @@ html[dir="rtl"] .lang-list li:hover a {
 html[dir="rtl"] .sidebar-reports>h5{
     font-size: 18px !important;
 }
-
+html[dir="rtl"] .hide-dropdown-btn{
+    display: none !important;
+}

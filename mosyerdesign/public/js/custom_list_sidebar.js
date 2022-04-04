@@ -11,7 +11,8 @@ frappe.views.ListSidebar.prototype.make = function () {
     // used to trigger custom scripts
     $(document).trigger('list_sidebar_setup');
 
-     this.sidebar.find('a.toggler-btn').on('click', () => {        $('.layout-side-section').toggleClass('toggle-sidebar');
+     this.sidebar.find('a.toggler-btn').on('click', () => {        
+        $('.layout-side-section').toggleClass('toggle-sidebar');
         $('.nav-app-logo').toggle();
         $('.cus-app-logo').toggleClass('hidden');
         $('.sidebar-item-label').toggleClass('hidden');
@@ -20,6 +21,9 @@ frappe.views.ListSidebar.prototype.make = function () {
         $('.support-img').toggleClass('hidden');
         $('.toolbar-user').toggleClass('user-settings-list');
         $('.sidebar-reports').toggleClass('sm-nav');
-        $('a.toggler-btn').toggleClass('toggle-side-sm-btn');$('.toolbar-user').toggleClass('user-settings-list');
-     });
+        $('a.toggler-btn').toggleClass('toggle-side-sm-btn');
+        $('.toolbar-user').toggleClass('user-settings-list');
+        $('.dropdown-btn').parent().toggleClass('hide-dropdown-btn');
+        $('.side-item').toggleClass('flex');
+    });
 }

@@ -9,7 +9,7 @@ frappe.ui.Page.prototype.add_main_section = function(){
                                 </div>
                                 <div class="col-md-5 col-xs-6 flex widget-boxs justify-content-between"></div>
                                 <!-- buttons -->
-                                <div class="col-md-5 col-xs-12 actions-btn flex justify-content-end">
+                                <div class="col-md-4 col-xs-12 actions-btn flex justify-content-end">
                                     <div class="custom-actions hide hidden-xs hidden-md"></div>
                                     <div class="standard-actions flex">
                                         <span class="page-icon-group hide hidden-xs hidden-sm"></span>

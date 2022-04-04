@@ -75,11 +75,27 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
 
     const get_sidebar_item = function (item) {
         return $(`
-				<a href="/app/${frappe.router.slug(item.name)}"
+			<div class="side-item flex align-items-center justify-content-between">
+				<a href="/app/${frappe.router.slug(item.name)}" style="flex:1"
 					class="desk-sidebar-item standard-sidebar-item ${item.selected ? "selected" : ""}" >
 					<span>${frappe.utils.icon(item.icon || "folder-normal", "lg")}</span>
 					<span class="sidebar-item-label">${__(item.label) || __(item.name)}<span>
 				</a>
+				<div style="padding-right:5px; margin-left: 10px;">
+				${item.items.length > 0 ?
+					`<button class="btn btn-default btn-sm dropdown-btn" data-toggle="dropdown" aria-expanded="false" data-original-title="Menu"
+								style="box-shadow: none !important;">
+								<svg class="icon icon-xs"><use href="#icon-small-down"></use></svg>
+					</button>`
+					:''}
+					<ul class="dropdown-menu dropdown-menu-right" style="overflow-x: hidden; max-height:450px"> 
+						${item.items.map(el=>
+							`<li> 
+								<a href="/app/${frappe.router.slug(item.name)}/${el}" class="dropdown-item">${__(el)}</a>
+							</li>`).join('')} 
+					</ul>
+				</div>	
+			</div>
 			`);
     };
 

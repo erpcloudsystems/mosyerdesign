@@ -19,5 +19,7 @@ frappe.ui.form.Sidebar.prototype.make = function(){
             $('.toolbar-user').toggleClass('user-settings-list');
             $('.sidebar-reports').toggleClass('sm-nav');
             $('a.toggler-btn').toggleClass('toggle-side-sm-btn');
+            $('.dropdown-btn').parent().toggleClass('hide-dropdown-btn');
+            $('.side-item').toggleClass('flex');
         });
 }

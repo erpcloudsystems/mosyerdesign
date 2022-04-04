@@ -5,6 +5,8 @@ $(document).ready(function(){
         $('.nav-app-logo').toggle();
         $('.cus-app-logo').toggleClass('hidden');
         $('.sidebar-item-label').toggleClass('hidden');
+        $('.dropdown-btn').parent().toggleClass('hide-dropdown-btn');
+        $('.side-item').toggleClass('flex');
         $('.user-account').toggleClass('hidden');
         $('.settings').toggleClass('hidden');
         $('.support-img').toggleClass('hidden');

@@ -63,7 +63,13 @@ span.count{
 .svg-size{
     width: 30px !important;
     height: 30px !important;
-}  
+}
+.form-viewers{
+    display: none !important;
+}
+.hide-dropdown-btn{
+    display: none !important;
+}
 /* ========= SideBar ========= */
 .list-sidebar, .overlay-sidebar{
     background-color: #fff !important;
