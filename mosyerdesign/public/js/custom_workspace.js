@@ -123,7 +123,7 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
 			`);
 	}
 	if (frappe.boot.reports.length){
-		this.sidebar.append(`<div class="sidebar-reports"> <h5> ${__("Reports")} </h5> </div>`)
+		this.sidebar.append(`<div class="sidebar-reports"></div>`)
 		frappe.boot.reports.forEach(report => {
 			let $report = get_sidebar_report(report)
 			$('div.sidebar-reports').append($report)

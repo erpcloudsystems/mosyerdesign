@@ -124,18 +124,13 @@ a.desk-sidebar-item:hover {
     margin-top: 120px !important;
 }
 .sidebar-reports{
-    border-top: 1px solid #eee;
+    border-top: 2px solid #222;
+    padding-top: 2px;
 }
 .sidebar-reports.sm-nav{
     display: flex;
     align-items: center;
     flex-direction: column;
-}
-.sidebar-reports h5{
-    background-color: #f9fafa;
-    color:var(--dark-gray-color);
-    text-align: center;
-    padding: 5px 0;
 }
 .toggle-sidebar{
     max-width: 100px !important;

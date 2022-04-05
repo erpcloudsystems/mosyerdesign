@@ -41,7 +41,6 @@
     <!-- Adding Reports In Sidebar  -->
     {% if frappe.boot.reports.length %}
         <div class="sidebar-reports">
-            <h5>{{__("Reports")}}</h5>
             {% for report in frappe.boot.reports %}
                 <a href="/app/query-report/{{report.name}}" class="desk-sidebar-item standard-sidebar-item" >
                     <span>{{frappe.utils.icon(report.icon || "folder-normal", "lg")}}</span>
