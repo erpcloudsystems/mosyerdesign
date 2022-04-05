@@ -28,10 +28,4 @@ $(document).ready(function(){
             $('a.toggler-btn').trigger( "click" );
         }
     })
-    $('a.standard-sidebar-item').on('click', (e)=>{
-        e.preventDefault();
-        $(e.target).addClass('selected')
-        console.log('aaaaaa');
-    })
-
 });
