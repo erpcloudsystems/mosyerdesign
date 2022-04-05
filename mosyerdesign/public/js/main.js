@@ -28,4 +28,5 @@ $(document).ready(function(){
             $('a.toggler-btn').trigger( "click" );
         }
     })
+
 });
