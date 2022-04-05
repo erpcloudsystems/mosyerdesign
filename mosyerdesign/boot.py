@@ -38,7 +38,7 @@ def get_doctypes_notification():
     if len(system_controller.notifications):
         for doc in system_controller.notifications:
             if frappe.has_permission(doctype=doc.title, user=frappe.session.user):
-                lst =  frappe.get_list(doc.title, fields=['*'], limit=5)
+                lst =  frappe.get_list(doc.title, fields=['*'], filters={'docstatus':1}, limit=5)
                 docs_info += lst
     return docs_info
 

@@ -3,7 +3,7 @@
     --purple-color: #885af8;
     --gray-color: #eee;
     --dark-gray-color: #90a0b7;
-    --blue-color: #109cf1;
+    --blue-color: #1579D0;
     --green-color: #2ed47a;
     --red-color: #f6685b;
     --yellow-color: #ffb946;
@@ -29,9 +29,9 @@
 .btn-primary:hover .icon {
     stroke: #fff !important;
 }
-.active{
-    color: var(--purple-color) !important;
-    background-color: transparent !important;
+.active, .desk-sidebar .standard-sidebar-item.selected{
+    color: #fff !important;
+    background-color: var(--purple-color) !important;
 }
 .purple{
     background-color: var(--purple-color);
@@ -81,6 +81,9 @@ span.count{
     margin-right: 0 !important;
     transition: all .3s ease-in-out !important;
 }
+.standard-sidebar-item{
+    border-radius: 2px !important;
+}
 .standard-sidebar-item>span>img{
     width: 46px; 
     border-radius: 50%;
@@ -92,7 +95,7 @@ a.desk-sidebar-item:hover {
     color: #fff !important;
 }
 .sidebar-item-label{
-    font-size: 20px !important;
+    font-size: 18px !important;
 }
 .layout-side-section{
     margin-top: 0px !important;
@@ -129,10 +132,9 @@ a.desk-sidebar-item:hover {
     flex-direction: column;
 }
 .sidebar-reports h5{
-    background-color: var(--purple-color);
-    color:#fff;
+    background-color: #f9fafa;
+    color:var(--dark-gray-color);
     text-align: center;
-    font-style: italic;
     padding: 5px 0;
 }
 .toggle-sidebar{
@@ -237,17 +239,36 @@ h3.title-text{
 .level-item {
     color: var(--purple-color) !important;
     font-weight: 600 !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
 }
 .level-item>a{
     font-size: 15px !important;
 }
+.level-item.bold.ellipsis{
+    font-weight: normal !important;
+}
+.level-item.list-row-activity{
+    font-weight: 400 !important;
+}
 .indicator-pill.yellow{
     background-color: var(--yellow-color) !important;
+}
+.indicator-pill.blue,
+.indicator-pill-right.blue,
+.indicator-pill-round.blue{
+    background-color: var(--blue-color) !important;
+    color: #fff !important;
+}
+.indicator-pill::before{
+    display: none !important;
 }
 .onboard-spotlight:hover{
     color: var(--purple-color) !important;
     background-color: transparent !important;
+}
+.form-message.blue{
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
 }
 /* ======== Toggler Btn ========= */
 .hidden{
@@ -331,6 +352,9 @@ a.toggler-btn{
 }
 .dashboard-widget-box{
     min-width: 100% !important;
+}
+.widget.dashboard-widget-box>.widget-title{
+    color: var(--purple-color) !important;
 }
 .justify-content-end {
     justify-content: flex-end !important;
