@@ -510,9 +510,6 @@ html[dir="rtl"] .lang-list li:hover a {
 html[dir="rtl"] .sidebar-reports>h5{
     font-size: 18px !important;
 }
-html[dir="rtl"] .hide-dropdown-btn{
-    display: none !important;
-}
 html[dir="rtl"] ul.drop-down-list{
     list-style-type: none;
     margin-bottom: 0 !important;
