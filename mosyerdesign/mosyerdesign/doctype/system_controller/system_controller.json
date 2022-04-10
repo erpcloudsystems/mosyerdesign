@@ -6,9 +6,8 @@
  "engine": "InnoDB",
  "field_order": [
   "enable",
-  "sidebar_items_section",
-  "doctypes",
-  "reports",
+  "sidebar_section",
+  "sidebar_item",
   "homepage_shortcuts_section",
   "system_admin_shortcuts",
   "hr_manager_shortcuts",
@@ -20,21 +19,10 @@
  ],
  "fields": [
   {
-   "fieldname": "doctypes",
-   "fieldtype": "Table",
-   "label": "Doctypes",
-   "options": "Doctype Table"
-  },
-  {
    "fieldname": "home_charts",
    "fieldtype": "Table",
    "label": "Home Charts",
    "options": "Home Chart Table"
-  },
-  {
-   "fieldname": "sidebar_items_section",
-   "fieldtype": "Section Break",
-   "label": "Sidebar Items"
   },
   {
    "fieldname": "homepage_shortcuts_section",
@@ -83,16 +71,21 @@
    "options": "Notifications Table"
   },
   {
-   "fieldname": "reports",
+   "fieldname": "sidebar_section",
+   "fieldtype": "Section Break",
+   "label": "Sidebar"
+  },
+  {
+   "fieldname": "sidebar_item",
    "fieldtype": "Table",
-   "label": "Reports",
-   "options": "Reports Table"
+   "label": "SideBar Item",
+   "options": "SideBar Item Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-03-31 10:17:34.008646",
+ "modified": "2022-04-10 12:52:45.510013",
  "modified_by": "Administrator",
  "module": "Mosyerdesign",
  "name": "System Controller",

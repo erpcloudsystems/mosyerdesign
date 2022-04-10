@@ -1,7 +1,7 @@
 
 frappe.ui.form.Sidebar.prototype.make = function(){
     var sidebar_content = frappe.render_template("form_sidebar", {
-        allowed_doctypes: frappe.boot.allowed_doctypes
+        allowed_doctypes: frappe.boot.sidebar_items
     });
 
     this.sidebar = $('<div class="form-sidebar overlay-sidebar hidden-xs hidden-sm"></div>')
@@ -19,7 +19,13 @@ frappe.ui.form.Sidebar.prototype.make = function(){
             $('.toolbar-user').toggleClass('user-settings-list');
             $('.sidebar-reports').toggleClass('sm-nav');
             $('a.toggler-btn').toggleClass('toggle-side-sm-btn');
-            $('.dropdown-btn').parent().toggleClass('hide-dropdown-btn');
-            $('.side-item').toggleClass('flex');
+            $('.dropdown-btn').toggleClass('hide-dropdown-btn');
+            $('.drop-down-menu').removeClass('show-menu');
+            $('.drop-down-menu').toggleClass('hidden');
         });
+
+        $('a.dropdown-btn').on('click', function(e){
+            e.preventDefault();
+            $(e.target).parent().next('.drop-down-menu').toggleClass('show-menu');
+        })
 }

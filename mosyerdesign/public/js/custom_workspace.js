@@ -1,6 +1,6 @@
 
 frappe.views.Workspace.prototype.make_sidebar = function () {
-    this.build_sidebar_section('category', frappe.boot.allowed_doctypes);
+    this.build_sidebar_section('category', frappe.boot.sidebar_items);
 }
 frappe.views.Workspace.prototype.build_sidebar_section = function (title, items) {
     let sidebar_section = $(`<div class="standard-sidebar-section"></div>`);
@@ -74,27 +74,31 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
     $('.overlay-sidebar').append(toggleBtn)
 
     const get_sidebar_item = function (item) {
-        return $(`
-			<div class="side-item flex align-items-center justify-content-between">
-				<a href="/app/${frappe.router.slug(item.name)}" style="flex:1"
-					class="desk-sidebar-item standard-sidebar-item ${item.selected ? "selected" : ""}" >
-					<span>${frappe.utils.icon(item.icon || "folder-normal", "lg")}</span>
-					<span class="sidebar-item-label">${__(item.label) || __(item.name)}<span>
-				</a>
-				<div style="padding-right:5px; margin-left: 10px;">
-					<button class="btn btn-default btn-sm dropdown-btn" data-toggle="dropdown" aria-expanded="false" data-original-title="Menu"
-								style="box-shadow: none !important;">
-								<svg class="icon icon-xs"><use href="#icon-small-down"></use></svg>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-right" style="overflow-x: hidden; max-height:450px"> 
+		let href = '#'
+		let cls = ''
+		if (item.items.length == 0){
+			href=`${item.route}`
+		}else{cls = 'dropdown-btn'}
+
+		return $(`
+			<div class="side-item">
+				<div class="flex align-items-center">
+					<a href="/app/${href}" style="flex:1" class="desk-sidebar-item standard-sidebar-item ${cls}" >
+						<span>${frappe.utils.icon(item.icon || "folder-normal", "lg")}</span>
+						<span class="sidebar-item-label">${__(item.label) || __(item.name)}<span>
+					</a>
+				</div>
+				<div class="drop-down-menu">
+					<ul class="drop-down-list"> 
 						${item.items.map(el=>
-							`<li> 
-								<a href="/app/${frappe.router.slug(item.name)}/${el}" class="dropdown-item" style="font-size:14px">${__(el)}</a>
+							`<li>
+								<a href="/app/${el.route}" class="dropdown-item" style="font-size:14px">${__(el.name)}</a>
+								
 							</li>`).join('')} 
 					</ul>
-				</div>	
-			</div>
-			`);
+				</div>
+			</div>	
+		`);
     };
 
     const make_sidebar_category_item = item => {
@@ -112,23 +116,6 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
     items.forEach(item => make_sidebar_category_item(item));
     sidebar_section.appendTo(this.sidebar);
 
-	// Render Reports
-	const get_sidebar_report = function(report){
-			return $(`
-				<a href="/app/query-report/${report.name}"
-					class="desk-sidebar-item standard-sidebar-item" >
-					<span>${frappe.utils.icon(report.icon || "folder-normal", "lg")}</span>
-					<span class="sidebar-item-label">${__(report.label) || __(report.name)}<span>
-				</a>
-			`);
-	}
-	if (frappe.boot.reports.length){
-		this.sidebar.append(`<div class="sidebar-reports"></div>`)
-		frappe.boot.reports.forEach(report => {
-			let $report = get_sidebar_report(report)
-			$('div.sidebar-reports').append($report)
-	})
-}
 }
 frappe.views.Workspace.prototype.make_page = function(page){
     const $page = new CustomDesktopPage({
@@ -363,3 +350,10 @@ class CustomDesktopPage {
         }
     }
 }
+
+$(document).ready(function () { 
+	$('.dropdown-btn').on('click', function(e){
+		e.preventDefault();
+		$(e.target).parent().next('.drop-down-menu').toggleClass('show-menu');
+	})
+ })

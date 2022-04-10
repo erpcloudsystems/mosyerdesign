@@ -15,41 +15,28 @@
                 <span class="sidebar-item-label"> {{ frappe.session.user_fullname }}<span>
                 <p class="text-muted" style="font-size: 12px; margin-bottom:0"> {{frappe.session.user_email}}</p>
             </a>
-            {% for doc in allowed_doctypes %}
-            <div class="side-item flex align-items-center justify-content-between">
-                <a href="/app/{{frappe.router.slug(doc.name)}}" class="desk-sidebar-item standard-sidebar-item" style="flex: 1;">
-                    <span>
-                        <svg class="icon icon-lg">
-                            <use class="" href="#icon-{{doc.icon ? doc.icon : "folder-normal"}}"></use>
-                        </svg>
-                    </span>
-                    <span class="sidebar-item-label">{{ doc.label ? __(doc.label): __(doc.name)}}<span>
-                </a>
-                <div style="padding-right:5px; margin-left: 10px;">
-                    <button class="btn btn-default btn-sm dropdown-btn" data-toggle="dropdown" aria-expanded="false" data-original-title="Menu" style="box-shadow: none !important;">
-                        <svg class="icon icon-xs"><use href="#icon-small-down"></use></svg>
-                    </button>
-                        <ul class="dropdown-menu dropdown-menu-right" style="overflow-x: hidden; max-height:450px"> 
-                            {% for item in doc.items %}
-                                <li> 
-                                    <a href="/app/{{frappe.router.slug(doc.name)}}/{{ item }}" class="dropdown-item" style="font-size:14px">{{ __(item) }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
+        {% for doc in allowed_doctypes %}
+            <div class="side-item">
+                <div class="flex">
+                    <a href={{doc.items.length > 0 ? "#"  : "/app/"+doc.route}} style="flex:1" 
+                        class="desk-sidebar-item standard-sidebar-item {{doc.items.length > 0 ? "dropdown-btn":""}} ">
+                        <span>{{frappe.utils.icon(doc.icon || "folder-normal", "lg")}}</span>
+                        <span class="sidebar-item-label">{{__(doc.label) || __(doc.name)}}<span>
+                    </a>
+                </div>
+                <div class="drop-down-menu">
+                    <ul class="drop-down-list"> 
+                       {% if doc.items.length > 0 %}
+                        {% for item in doc.items %}
+                            <li>
+                                <a href="/app/{{item.route}}" class="dropdown-item" style="font-size:14px">{{ __(item.name) }}</a>
+                            </li>
+                        {% endfor %}
+                       {% endif %}
+                    </ul>
                 </div>
             </div>
-            {% endfor %}
-            <!-- Adding Reports In Sidebar  -->
-            {% if frappe.boot.reports.length %}
-                <div class="sidebar-reports">
-                    {% for report in frappe.boot.reports %}
-                        <a href="/app/query-report/{{report.name}}" class="desk-sidebar-item standard-sidebar-item" >
-                            <span>{{frappe.utils.icon(report.icon || "folder-normal", "lg")}}</span>
-                            <span class="sidebar-item-label">{{__(report.label) || __(report.name)}}<span>
-                        </a>
-                    {% endfor %}
-                </div>
-            {% endif %}
+        {% endfor %}
         </div>
     </div>
 
