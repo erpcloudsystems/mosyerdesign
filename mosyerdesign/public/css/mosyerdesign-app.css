@@ -93,9 +93,12 @@ span.count{
     margin-right: 27px;
     margin-left: 0;
 }
-a.desk-sidebar-item:hover {
+a.desk-sidebar-item:hover,
+a.desk-sidebar-item:hover .icon {
     background-color: var(--purple-color) !important;
     color: #fff !important;
+    fill: #fff !important;
+    stroke: #fff !important;
 }
 .sidebar-item-label{
     font-size: 18px !important;
@@ -169,7 +172,6 @@ a.desk-sidebar-item:hover {
 .dropdown-btn{
     box-shadow: none !important;
     border-radius: 2px !important;
-    margin-right: 5px;
 }
 .drop-down-menu{
     overflow: hidden;
@@ -185,33 +187,30 @@ a.desk-sidebar-item:hover {
 ul.drop-down-list{
     list-style-type: none;
     margin-bottom: 0 !important;
-    padding: 10px 0 !important;
-    padding-left: 15px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
-ul.drop-down-list >li{
-    margin-right: 5px !important;
+ul.drop-down-list li {
+    padding: 5px 15px !important;
 }
-ul.drop-down-list>li:hover .dropdown-item{    
+ul.drop-down-list li span{
+    margin-right: 10px !important;
+}
+ul.drop-down-list li:hover,
+ul.drop-down-list li:hover .dropdown-item,
+ul.drop-down-list>li:hover .icon {  
     background-color: var(--purple-color) !important;
     color: #fff !important;
-}
-ul.drop-down-list>li:hover .dropdown-item .icon{
     stroke: #fff !important;
+    fill: #fff !important;
+}
+.dropdown-menu a:hover {
+    background-color: var(--purple-color) !important;
+    color: #fff !important;
 }
 .show-menu{
     max-height: 500px !important;
     height: auto;
-}
-ul.dropdown-menu>li:hover .dropdown-item{    
-    background-color: var(--purple-color) !important;
-    color: #fff !important;
-}
-ul.dropdown-menu>li:hover .dropdown-item .icon{
-    stroke: #fff !important;
-}
-.dropdown-menu-right>a:hover {
-    background-color: var(--purple-color) !important;
-    color: #fff !important;
 }
 /* ========= Nav Bar ========= */
 .cus-app-logo img{
@@ -439,7 +438,7 @@ a.toggler-btn{
     padding-bottom: 15px;
 }
 /* =============================== */
-.document-link-badge{
+.document-link-badge, .report-link-badge{
     background-color: var(--purple-color) !important;
     color: #fff !important;
 }

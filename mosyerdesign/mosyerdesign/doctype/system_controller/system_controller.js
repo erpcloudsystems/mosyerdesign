@@ -24,11 +24,7 @@ frappe.ui.form.on('System Controller', {
 			}
 		};
 	},
-
-////////////////////////////////////////////////////
-
 	set_parent_label_options: function(frm) {
-		console.log('set_parent_label_options');
 		frm.fields_dict.sidebar_item.grid.update_docfield_property(
 			'parent_name', 'options', frm.events.get_parent_options(frm, "sidebar_item")
 		);
@@ -39,7 +35,9 @@ frappe.ui.form.on('System Controller', {
 		var main_items = [''];
 		for (var i in items) {
 			var d = items[i];
-			if (d.label) main_items.push(d.doc_name);
+			if (d.label && d.parent_name == undefined) {
+				main_items.push(d.doc_name)
+			};
 		}
 		return main_items.join('\n');
 	},
@@ -54,7 +52,9 @@ frappe.ui.form.on('System Controller', {
 });
 
 frappe.ui.form.on('SideBar Item Table', {
-
+	refresh: function(frm) {
+		frm.events.set_parent_label_options(frm);
+	},
 	sidebar_item_add(frm) {
 		frm.events.set_parent_label_options(frm);
 	},

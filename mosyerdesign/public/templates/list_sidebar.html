@@ -2,7 +2,7 @@
     <div class="desk-sidebar list-unstyled sidebar-menu">
         <div class="standard-sidebar-section">
             <div class="standard-sidebar-label"></div>
-            <a href="/app/user" class="standard-sidebar-item mb-2" style="border-bottom: 1px solid #eee;">
+            <a href="/app/user" class="standard-sidebar-item" style="border-bottom: 1px solid #eee;">
                 <span>
                     {% if frappe.boot.user_info[frappe.session.user].image %}
                     <img src="{{ frappe.boot.user_info[frappe.session.user].image }}"
@@ -28,7 +28,8 @@
                     <ul class="drop-down-list"> 
                        {% if doc.items.length > 0 %}
                         {% for item in doc.items %}
-                            <li>
+                            <li class="flex align-items-center">
+                                <span>{{frappe.utils.icon(item.icon || "folder-normal", "md")}}</span>
                                 <a href="/app/{{item.route}}" class="dropdown-item" style="font-size:14px">{{ __(item.name) }}</a>
                             </li>
                         {% endfor %}

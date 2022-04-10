@@ -20,12 +20,12 @@ def get_sidebar_items():
         if not row.parent_name:
             sidebar_items.append({'name': row.doc_name , 'icon':row.icon,'module': '', 'label': row.label,'route':route, 'items':[]})
         else:
-            child_items.append({'name':row.doc_name, 'parent_name': row.parent_name, 'route':route})
+            child_items.append({'name':row.doc_name, 'parent_name': row.parent_name, 'icon':row.icon, 'route':route})
     
     for ch_itm in child_items:
         for itm in sidebar_items:
             if ch_itm.get('parent_name') == itm.get('name'):
-                itm.get('items').append({'name':ch_itm.get('name'), 'route':ch_itm.get('route')})
+                itm.get('items').append({'name':ch_itm.get('name'), 'icon':ch_itm.get('icon'), 'route':ch_itm.get('route')})
     return sidebar_items
 
 def get_doctypes_notification():

@@ -91,7 +91,8 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
 				<div class="drop-down-menu">
 					<ul class="drop-down-list"> 
 						${item.items.map(el=>
-							`<li>
+							`<li class="flex align-items-center">
+								<span class="icon">${frappe.utils.icon(el.icon || "folder-normal", "md")}</span>
 								<a href="/app/${el.route}" class="dropdown-item" style="font-size:14px">${__(el.name)}</a>
 								
 							</li>`).join('')} 
