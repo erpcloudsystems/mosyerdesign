@@ -21,11 +21,6 @@ def get_sidebar_items():
             elif row.type == 'DocType':
                 route = '-'.join(row.doc_name.lower().split(' '))
 
-            # if not row.parent_name:
-            #     sidebar_items.append({'name': row.doc_name , 'icon':row.icon,'module': '', 'label': row.label,'route':route, 'items':[]})
-            # else:
-            #     child_items.append({'name':row.doc_name, 'parent_name': row.parent_name, 'icon':row.icon, 'route':route})
-
             if row.type == 'Label':
                 sidebar_items.append({'name': row.label , 'icon':row.icon, 'items':[]})
             else:

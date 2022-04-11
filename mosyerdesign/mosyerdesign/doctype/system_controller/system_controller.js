@@ -3,6 +3,8 @@
 
 frappe.ui.form.on('System Controller', {
 	refresh: function(frm) {
+		frm.trigger('set_parent_label_options');
+
 		frm.fields_dict['system_admin_shortcuts'].grid.get_field("title").get_query = function(doc, cdt, cdn) {
 			return {
 				filters: {'issingle': 0}
@@ -29,7 +31,6 @@ frappe.ui.form.on('System Controller', {
 			'parent_name', 'options', frm.events.get_parent_options(frm, "sidebar_item")
 		);
 	},
-
 	get_parent_options: function(frm, table_field) {
 		var items = frm.doc[table_field] || [];
 		var main_items = [''];
@@ -50,11 +51,7 @@ frappe.ui.form.on('System Controller', {
 	},
 
 });
-
 frappe.ui.form.on('SideBar Item Table', {
-	refresh: function(frm) {
-		frm.events.set_parent_label_options(frm);
-	},
 	sidebar_item_add(frm) {
 		frm.events.set_parent_label_options(frm);
 	},

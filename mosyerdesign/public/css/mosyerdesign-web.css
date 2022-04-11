@@ -9,6 +9,22 @@ nav.navbar,
 .navbar-expand-lg{
     display: none !important;
 }
+.page_content{
+    padding-top: 30px !important;
+}
+.for-login,
+.for-forgot, 
+.for-signup,
+.for-email-login{
+    padding: 0 !important;
+}
+.for-login{
+    padding-top: 70px !important;
+}
+.form-forgot,
+.form-signin, .form-signup{
+    padding-top: 100px !important;
+}
 .page-content-wrapper{
     overflow: hidden !important;
 }
@@ -54,12 +70,12 @@ to {-webkit-transform: rotate(360deg);}
 to {-webkit-transform: rotate(360deg);}
 }
 
-@media only screen and (max-width: 992px) {
-    .login-img{
+@media only screen and (max-width: 991px) {
+    .signup-img,
+    .login-img,
+    .forgot-img{
         display: none !important;
     }
-}
-@media only screen and (max-width: 992px) {
     .page-card-head{
         text-align: center !important;
     }
@@ -72,11 +88,8 @@ to {-webkit-transform: rotate(360deg);}
     .forgot-password-message{
         text-align: center !important
     }
-    .login-content{
-        max-width: 80% !important;
-        margin: 0 auto !important;
+    .login-page-content{
+        margin-top: 20px !important;
+        padding-top: 20px !important;
     }
-
 }
-
-

@@ -107,6 +107,7 @@ login.reset_sections = function (hide) {
 login.login = function () {
 	login.reset_sections();
 	$(".for-login").toggle(true);
+	$(".for-login").css('display', 'block')
 }
 
 login.email = function () {

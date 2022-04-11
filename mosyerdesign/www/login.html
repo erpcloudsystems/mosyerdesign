@@ -54,45 +54,49 @@
 			{{ _("You need to enable JavaScript for your app to work.") }}<br>{{ _("To enable it follow the instructions in the following link: {0}").format("<a href='https://enable-javascript.com/'>enable-javascript.com</a></p>") }}
 	</div>
 </noscript>
-<div class="row">
-	<div class="col-lg-5 col-xs-12 mt-4" style="margin: auto;">
-		{{ logo_section() }}
-		<section class='for-login'>
-		<div class="login-content page-card">
-			{%- if not disable_signup -%}
-			<div class="sign-up-message mb-4">
-				<h4 style="font-weight: 700; color: rgba(43, 39, 55, 1); font-size: 34px ">Sign In</h4>
-				{{ _("Don't have an account yet?") }}
-				<br>
-				<a href="#signup">{{ _("Sign up") }}</a>
-			</div>
-			{%- endif -%}
-			<form class="form-signin form-login" role="form">
-				{%- if social_login -%}
-				<div class="page-card-body">
-					<div class="social-logins text-center">
-						<div class="social-login-buttons">
-							{% for provider in provider_logins %}
-							<div class="login-button-wrapper">
-								<a href="{{ provider.auth_url }}"
-									class="btn btn-block btn-default btn-sm btn-login-option btn-{{ provider.name }}">
-									{% if provider.icon %}
-										{{ provider.icon }}
-									{% endif %}
-									{{ _("Login With {0}").format(provider.provider_name) }}</a>
-							</div>
-							{% endfor %}
-							<p class="text-muted login-divider">{{ _("or") }}</p>
-						</div>
-					</div>
-					<a href="#email"
-						class="btn btn-block btn-default btn-sm btn-login-option">
-					 {{ _("Login With Email") }}</a>
+{{ logo_section()}}
+<div class="container login-page-content">
+	<section class='for-login row'>
+		<div class="flex">
+			<div class="login-content page-card col-lg-5 col">
+				{%- if not disable_signup -%}
+				<div class="sign-up-message mb-4">
+					<h4 style="font-weight: 700; color: rgba(43, 39, 55, 1); font-size: 34px ">Sign In</h4>
+					{{ _("Don't have an account yet?") }}
+					<br>
+					<a href="#signup">{{ _("Sign up") }}</a>
 				</div>
-				{% else %}
-					{{ email_login_body() }}
 				{%- endif -%}
-			</form>
+				<form class="form-signin form-login" role="form">
+					{%- if social_login -%}
+					<div class="page-card-body">
+						<div class="social-logins text-center">
+							<div class="social-login-buttons">
+								{% for provider in provider_logins %}
+								<div class="login-button-wrapper">
+									<a href="{{ provider.auth_url }}"
+										class="btn btn-block btn-default btn-sm btn-login-option btn-{{ provider.name }}">
+										{% if provider.icon %}
+											{{ provider.icon }}
+										{% endif %}
+										{{ _("Login With {0}").format(provider.provider_name) }}</a>
+								</div>
+								{% endfor %}
+								<p class="text-muted login-divider">{{ _("or") }}</p>
+							</div>
+						</div>
+						<a href="#email"
+							class="btn btn-block btn-default btn-sm btn-login-option">
+						 {{ _("Login With Email") }}</a>
+					</div>
+					{% else %}
+						{{ email_login_body() }}
+					{%- endif -%}
+				</form>
+			</div>
+			<div class="col-lg-7 signup-img">
+				<img src="/assets/mosyerdesign/img/login.jpg" alt="login">
+			</div>
 		</div>
 	</section>
 
@@ -112,66 +116,71 @@
 		{%- endif -%}
 	</section>
 	{%- endif -%}
-	<section class='for-signup {{ "signup-disabled" if disable_signup else "" }}'>
-		<div class="login-content page-card">
-			{%- if not disable_signup -%}
-			<form class="form-signin form-signup hide" role="form">
-				<div class="page-card-body">
-					<div class="form-group">
-						<label class="form-label" for="signup_fullname">Full Name</label>
-						<input type="text" id="signup_fullname" class="form-control"  required autofocus>
+	<section class='for-signup {{ "signup-disabled" if disable_signup else "" }} row'>
+		<div class="flex">
+			<div class="login-content page-card col-lg-5 col">
+				{%- if not disable_signup -%}
+				<form class="form-signin form-signup hide" role="form">
+					<div class="page-card-body">
+						<div class="form-group">
+							<label class="form-label" for="signup_fullname">Full Name</label>
+							<input type="text" id="signup_fullname" class="form-control"  required autofocus>
+						</div>
+						<div class="form-group">
+							<label class="form-label" for="signup_email">Email</label>
+							<input type="email" id="signup_email" class="form-control"  required>
+						</div>
 					</div>
-					<div class="form-group">
-						<label class="form-label" for="signup_email">Email</label>
-						<input type="email" id="signup_email" class="form-control"  required>
+					<div class="page-card-actions">
+						<button class="btn btn-sm btn-block btn-signup" type="submit">{{ _("Sign up") }}</button>
+	
+						<p class="text-left sign-up-message">
+							<a href="#login" class="blue" style="font-size: 16px;">{{ _("Have an account? Login") }}</a>
+						</p>
 					</div>
+				</form>
+				{%- else -%}
+				<div class='page-card-head mb-2'>
+					<span class='indicator gray'>{{_("Signup Disabled")}}</span>
+					<p class="text-muted text-normal sign-up-message mt-1 mb-8">{{_("Signups have been disabled for this website.")}}</p>
+					<div><a href='/' class='btn btn-primary btn-md'>{{ _("Home") }}</a></div>
 				</div>
-				<div class="page-card-actions">
-					<button class="btn btn-sm btn-block btn-signup" type="submit">{{ _("Sign up") }}</button>
-
-					<p class="text-left sign-up-message">
-						<a href="#login" class="blue" style="font-size: 16px;">{{ _("Have an account? Login") }}</a>
-					</p>
-				</div>
-			</form>
-			{%- else -%}
-			<div class='page-card-head mb-2'>
-				<span class='indicator gray'>{{_("Signup Disabled")}}</span>
-				<p class="text-muted text-normal sign-up-message mt-1 mb-8">{{_("Signups have been disabled for this website.")}}</p>
-				<div><a href='/' class='btn btn-primary btn-md'>{{ _("Home") }}</a></div>
+				{%- endif -%}
 			</div>
-			{%- endif -%}
+			<div class="col-lg-7 login-img">
+				<img src="/assets/mosyerdesign/img/signup.jpg" alt="login">
+			</div>
 		</div>
-
 	</section>
 
-	<section class='for-forgot'>
-		<div class="login-content page-card">
-			<form class="form-signin form-forgot hide" role="form">
-				<div class="text-left page-card-head">
-					<h4>{{ _('Forgot Password') }}</h4>
-				</div>
-				<div class="page-card-body">
-					<div class="email-field">
-						<label for="email">Email</label>
-						<input type="email" id="forgot_email" class="form-control"  required autofocus>
+	<section class='for-forgot row'>
+		<div class="flex">
+			<div class="login-content page-card col-lg-5 col">
+				<form class="form-signin form-forgot hide" role="form">
+					<div class="text-left page-card-head">
+						<h4>{{ _('Forgot Password') }}</h4>
 					</div>
-				</div>
-				<div class="page-card-actions">
-					<button class="btn btn-sm btn-primary btn-block btn-forgot"
-						type="submit">{{ _("Reset Password") }}</button>
-					<p class="text-left sign-up-message pt-4">
-						<a href="#login" style="font-size: 16px;">{{ _("Back to Login") }}</a>
-					</p>
-				</div>
-
-			</form>
+					<div class="page-card-body">
+						<div class="email-field">
+							<label for="email">Email</label>
+							<input type="email" id="forgot_email" class="form-control"  required autofocus>
+						</div>
+					</div>
+					<div class="page-card-actions">
+						<button class="btn btn-sm btn-primary btn-block btn-forgot"
+							type="submit">{{ _("Reset Password") }}</button>
+						<p class="text-left sign-up-message pt-4">
+							<a href="#login" style="font-size: 16px;">{{ _("Back to Login") }}</a>
+						</p>
+					</div>
+	
+				</form>
+			</div>
+			<div class="col-lg-7 forgot-img">
+				<img src="/assets/mosyerdesign/img/forgot.png" alt="forgot">
+			</div>
 		</div>
 	</section>
-	</div>
-	<div class="col-lg-7 login-img">
-		<img src="/assets/mosyerdesign/img/saly1350229431-s7o-900w.png" alt="main photo" style="width: 100%; height: 100%; object-fit: cover;"/>
-	</div>
 </div>
 {% endblock %}
 
