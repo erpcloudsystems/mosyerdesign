@@ -17,8 +17,8 @@
         <div class="flex">
             <a href={{doc.items.length > 0 ? "#"  : "/app/"+ doc.route}} style="flex:1" 
                 class="desk-sidebar-item standard-sidebar-item {{doc.items.length > 0 ? "dropdown-btn":""}} ">
-                <span>{{frappe.utils.icon(doc.icon || "folder-normal", "lg")}}</span>
-                <span class="sidebar-item-label">{{__(doc.label) || __(doc.name)}}<span>
+                <span style="pointer-events: none !important;">{{frappe.utils.icon(doc.icon || "folder-normal", "lg")}}</span>
+                <span style="pointer-events: none !important;" class="sidebar-item-label">{{__(doc.label) || __(doc.name)}}<span>
             </a>
         </div>
         <div class="drop-down-menu">

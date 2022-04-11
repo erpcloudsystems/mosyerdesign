@@ -1,5 +1,6 @@
 
 from cmath import log
+from operator import le
 import frappe
 
 def boot_session(bootinfo):
@@ -11,21 +12,29 @@ def get_sidebar_items():
     system_controller = frappe.get_single('System Controller')
     sidebar_items = []
     child_items = []
-    for row in system_controller.sidebar_item:
-        route = ''
-        if row.type == 'Report':
-            route = 'query-report/' + row.doc_name
-        else:route = '-'.join(row.doc_name.lower().split(' '))
 
-        if not row.parent_name:
-            sidebar_items.append({'name': row.doc_name , 'icon':row.icon,'module': '', 'label': row.label,'route':route, 'items':[]})
-        else:
-            child_items.append({'name':row.doc_name, 'parent_name': row.parent_name, 'icon':row.icon, 'route':route})
-    
-    for ch_itm in child_items:
-        for itm in sidebar_items:
-            if ch_itm.get('parent_name') == itm.get('name'):
-                itm.get('items').append({'name':ch_itm.get('name'), 'icon':ch_itm.get('icon'), 'route':ch_itm.get('route')})
+    if len(system_controller.sidebar_item):
+        for row in system_controller.sidebar_item:
+            route = ''
+            if row.type == 'Report':
+                route = 'query-report/' + row.doc_name
+            elif row.type == 'DocType':
+                route = '-'.join(row.doc_name.lower().split(' '))
+
+            # if not row.parent_name:
+            #     sidebar_items.append({'name': row.doc_name , 'icon':row.icon,'module': '', 'label': row.label,'route':route, 'items':[]})
+            # else:
+            #     child_items.append({'name':row.doc_name, 'parent_name': row.parent_name, 'icon':row.icon, 'route':route})
+
+            if row.type == 'Label':
+                sidebar_items.append({'name': row.label , 'icon':row.icon, 'items':[]})
+            else:
+                child_items.append({'name':row.doc_name, 'parent_name': row.parent_name, 'icon':row.icon, 'route':route})
+
+        for ch_itm in child_items:
+            for itm in sidebar_items:
+                if ch_itm.get('parent_name') == itm.get('name'):
+                    itm.get('items').append({'name':ch_itm.get('name'), 'icon':ch_itm.get('icon'), 'route':ch_itm.get('route')})
     return sidebar_items
 
 def get_doctypes_notification():

@@ -84,8 +84,8 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
 			<div class="side-item">
 				<div class="flex align-items-center">
 					<a href="/app/${href}" style="flex:1" class="desk-sidebar-item standard-sidebar-item ${cls}" >
-						<span>${frappe.utils.icon(item.icon || "folder-normal", "lg")}</span>
-						<span class="sidebar-item-label">${__(item.label) || __(item.name)}<span>
+						<span style="pointer-events: none !important;">${frappe.utils.icon(item.icon || "folder-normal", "lg")}</span>
+						<span style="pointer-events: none !important;" class="sidebar-item-label">${__(item.label) || __(item.name)}<span>
 					</a>
 				</div>
 				<div class="drop-down-menu">
@@ -93,7 +93,7 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
 						${item.items.map(el=>
 							`<li class="flex align-items-center">
 								<span class="icon">${frappe.utils.icon(el.icon || "folder-normal", "md")}</span>
-								<a href="/app/${el.route}" class="dropdown-item" style="font-size:14px">${__(el.name)}</a>
+								<a href="/app/${el.route}" class="dropdown-item p-0" style="font-size:14px">${__(el.name)}</a>
 								
 							</li>`).join('')} 
 					</ul>
@@ -351,6 +351,8 @@ class CustomDesktopPage {
         }
     }
 }
+
+
 
 $(document).ready(function () { 
 	$('.dropdown-btn').on('click', function(e){

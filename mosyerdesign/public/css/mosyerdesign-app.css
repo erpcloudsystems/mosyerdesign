@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap');
+
 /* General Stylies */
 :root{
     --purple-color: #885af8;
@@ -7,6 +9,9 @@
     --green-color: #2ed47a;
     --red-color: #f6685b;
     --yellow-color: #ffb946;
+}
+body{
+    font-family: 'Cairo', sans-serif !important;
 }
 ::selection{
     background-color: var(--purple-color) !important;
@@ -84,14 +89,31 @@ span.count{
 .standard-sidebar-item{
     border-radius: 2px !important;
 }
+.company-info a {
+    text-decoration: none !important;
+    display: block;
+    text-align: center !important;
+    padding: 8px 12px;
+}
+.company-title{
+    padding: 5px;
+    background: #f9fafa;
+    font-size: 18px;
+}
 .standard-sidebar-item>span>img{
     width: 46px; 
     border-radius: 50%;
     margin-right: 27px;
     margin-left: 0;
 }
+a.system-item{
+    text-align: left !important;
+    padding-left: 15px !important;
+}
 a.desk-sidebar-item:hover,
-a.desk-sidebar-item:hover .icon {
+a.desk-sidebar-item:hover .icon,
+a.system-item:hover ,
+a.system-item:hover .icon{
     background-color: var(--purple-color) !important;
     color: #fff !important;
     fill: #fff !important;
@@ -297,6 +319,13 @@ h3.title-text{
     background-color: var(--purple-color) !important;
     color: #fff !important;
 }
+.actions-btn{
+    padding-right: 0 !important;
+}
+.layout-main-section.frappe-card,
+.layout-main-section{
+    margin-right: 28px !important;
+}
 /* ======== Toggler Btn ========= */
 .hidden{
     display: none !important;
@@ -440,6 +469,9 @@ a.toggler-btn{
     color: #fff !important;
 }
 /* ======== Language Switcher ========== */
+.switcher-icon{
+    margin-right: -10px !important;
+}
 .lang-list{
     min-width: 80px;
     top: 30px;
@@ -473,6 +505,9 @@ a.toggler-btn{
     }
     .lang-list {
         left: -60px;
+    }
+    .switcher-icon{
+        margin-right: 18px !important;
     }
 }
 @media only screen and (max-width: 767px) {

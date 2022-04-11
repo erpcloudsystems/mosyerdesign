@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap');
 /* General Stylies */
 :root{
     --purple-color: #885af8;
@@ -7,6 +8,9 @@
     --green-color: #2ed47a;
     --red-color: #f6685b;
     --yellow-color: #ffb946;
+}
+body{
+    font-family: 'Cairo', sans-serif !important;
 }
 ::selection{
     background-color: var(--purple-color) !important;
@@ -81,8 +85,20 @@ span.count{
 .standard-sidebar-section{
     margin-top: 0 !important;
 }
+.company-info a {
+    text-decoration: none !important;
+    display: block;
+    padding: 8px 12px;
+}
+.company-title{
+    padding: 5px;
+    background: #f9fafa;
+    font-size: 18px;
+}
 a.desk-sidebar-item:hover,
-a.desk-sidebar-item:hover .icon {
+a.desk-sidebar-item:hover .icon,
+a.system-item:hover ,
+a.system-item:hover .icon{
     background-color: var(--purple-color) !important;
     color: #fff !important;
     fill: #fff !important;
@@ -397,7 +413,6 @@ h3.title-text{
     padding-right: 0 !important;
     margin-bottom: 0 !important;
 }
-
 [data-page-route=Workspaces] .layout-main {
     height: calc(100vh - var(--navbar-height)- 5px) !important;
 }
@@ -449,6 +464,9 @@ input[type="checkbox"]:checked{
     }
     div.widget-group-body.grid-col-3{
         justify-content: center !important;
+    }
+    .switcher-icon{
+        margin-left: 18px !important;
     }
 }
 /* ========== AR Direction ========== */
@@ -518,4 +536,15 @@ html[dir="rtl"] ul.drop-down-list{
 }
 html[dir="rtl"] ul.drop-down-list li span{
     margin-left: 10px !important;
+}
+html[dir="rtl"] a.system-item{
+    text-align: right !important;
+    padding-right: 15px !important;
+}
+html[dir="rtl"] .actions-btn{
+    padding-left: 0 !important;
+}
+html[dir="rtl"] .layout-main-section.frappe-card,
+html[dir="rtl"] .layout-main-section{
+    margin-left: 30px !important;
 }

@@ -77,7 +77,7 @@ frappe.ui.Page.prototype.add_main_section = function(){
                 let template = `
                                 <div class="status-box ${status == 'Active'? 'active-status': status == 'Inactive'? 'inactive-status': status == 'On Leave'? 'leave-status': 'bg-yellow'}" >
                                     <div> 
-                                        <p style="font-size: 16px;font-weight: 600;">${status} </p>
+                                        <p style="font-size: 16px;font-weight: 600;">${__(status)} </p>
                                         <p style="font-size: 18px; font-weight: 800;"> ${total.length} </p>
                                     </div>
                                     <div class="status-box-body flex align-items-center justify-content-around">

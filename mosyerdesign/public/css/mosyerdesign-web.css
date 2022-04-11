@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap');
+
 body{
     background-color: #fff !important;
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Cairo', sans-serif !important;
 }
 nav.navbar,
 .navbar-light, 
@@ -21,6 +23,9 @@ nav.navbar,
 input{
     padding-left: 10px !important;
     height: 50px !important;
+}
+input[type="text"]{
+    font-size: 18px !important;
 }
 .page-card-actions button{
     background-color: #885af8 !important;

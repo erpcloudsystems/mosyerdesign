@@ -9,7 +9,6 @@
         "public/js/custom_form_sidebar.js",
         "public/js/employee_list.js",
         "public/js/custom_page.js",
-        "public/js/custom_widget_group.js",
         "public/js/main.js"
     ]
 }

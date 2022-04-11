@@ -35,8 +35,8 @@ frappe.ui.form.on('System Controller', {
 		var main_items = [''];
 		for (var i in items) {
 			var d = items[i];
-			if (d.label && d.parent_name == undefined) {
-				main_items.push(d.doc_name)
+			if (d.type == 'Label') {
+				main_items.push(d.label)
 			};
 		}
 		return main_items.join('\n');
