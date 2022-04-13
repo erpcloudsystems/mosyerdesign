@@ -10,8 +10,8 @@ def boot_session(bootinfo):
 
 def get_sidebar_items():
     system_controller = frappe.get_single('System Controller')
+    labels = []
     if len(system_controller.sidebar_labels):
-        labels = []
         for row in system_controller.sidebar_labels:
             labels.append({'label': row.label, 'name': row.label,'icon': row.icon, 'child_items':[]})
 
