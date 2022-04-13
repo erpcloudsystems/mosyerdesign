@@ -10,27 +10,22 @@ def boot_session(bootinfo):
 
 def get_sidebar_items():
     system_controller = frappe.get_single('System Controller')
-    sidebar_items = []
-    child_items = []
+    if len(system_controller.sidebar_labels):
+        labels = []
+        for row in system_controller.sidebar_labels:
+            labels.append({'label': row.label, 'name': row.label,'icon': row.icon, 'child_items':[]})
 
-    if len(system_controller.sidebar_item):
-        for row in system_controller.sidebar_item:
-            route = ''
-            if row.type == 'Report':
-                route = 'query-report/' + row.doc_name
-            elif row.type == 'DocType':
-                route = '-'.join(row.doc_name.lower().split(' '))
+        for label in labels:
+            for row in system_controller.sidebar_item:
+                route = ''
+                if row.type == 'Report':
+                    route = 'query-report/' + row.doc_name
+                elif row.type == 'DocType':
+                    route = '-'.join(row.doc_name.lower().split(' '))
 
-            if row.type == 'Label':
-                sidebar_items.append({'name': row.label , 'icon':row.icon, 'items':[]})
-            else:
-                child_items.append({'name':row.doc_name, 'parent_name': row.parent_name, 'icon':row.icon, 'route':route})
-
-        for ch_itm in child_items:
-            for itm in sidebar_items:
-                if ch_itm.get('parent_name') == itm.get('name'):
-                    itm.get('items').append({'name':ch_itm.get('name'), 'icon':ch_itm.get('icon'), 'route':ch_itm.get('route')})
-    return sidebar_items
+                if label.get('label') == row.parent_name:
+                    label.get('child_items').append({'route':route, 'name':row.doc_name, 'label':row.label, 'icon':row.icon, 'route':route})
+    return labels
 
 def get_doctypes_notification():
     system_controller = frappe.get_single('System Controller')

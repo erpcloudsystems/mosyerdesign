@@ -1,7 +1,6 @@
 
 frappe.ui.Page.prototype.add_main_section = function(){
-        
-        $(frappe.render_template("page", {})).appendTo(this.wrapper);
+    $(frappe.render_template("page", {})).appendTo(this.wrapper);
         let pageActions = `
                             <div class="container-fluid flex page-actions row my-4 justify-content-between">
                                 <div class="col-md-2 col-xs-4 flex fill-width title-area">
@@ -68,8 +67,52 @@ frappe.ui.Page.prototype.add_main_section = function(){
 				</div>
 			`);
         }
+        this.setup_page();
+}
 
-        let currentDoc = frappe.get_route()[1]
+frappe.views.Container.prototype.change_to = function(label) {
+    cur_page = this;
+    if(this.page && this.page.label === label) {
+        $(this.page).trigger('show');
+    }
+    var me = this;
+    if(label.tagName) {
+        // if sent the div, get the table
+        var page = label;
+    } else {
+        var page = frappe.pages[label];
+    }
+    if(!page) {
+        console.log(__('Page not found')+ ': ' + label);
+        return;
+    }
+    // hide dialog
+    if(window.cur_dialog && cur_dialog.display && !cur_dialog.keep_open) {
+        if (!cur_dialog.minimizable) {
+            cur_dialog.hide();
+        } else if (!cur_dialog.is_minimized) {
+            cur_dialog.toggle_minimize();
+        }
+    }
+    // hide current
+    if(this.page && this.page != page) {
+        $(this.page).hide();
+        $(this.page).trigger('hide');
+    }
+    // show new
+    if(!this.page || this.page != page) {
+        this.page = page;
+        // $(this.page).fadeIn(300);
+        $(this.page).show();
+    }
+    $(document).trigger("page-change");
+
+    this.page._route = frappe.router.get_sub_path();
+    $(this.page).trigger('show');
+    !this.page.disable_scroll_to_top && frappe.utils.scroll_to(0);
+    frappe.breadcrumbs.update();
+
+    let currentDoc = frappe.get_route()[1]
         let listCurrentDoc = frappe.get_route()[0]
         if (currentDoc == 'Employee' && listCurrentDoc == 'List'){
             async function totalInactive(status) {
@@ -92,6 +135,9 @@ frappe.ui.Page.prototype.add_main_section = function(){
             totalInactive('Active')
             totalInactive('Inactive')
             totalInactive('Left')
+        }else{
+            $('.widget-boxs').empty();
         }
-        this.setup_page();
+
+    return this.page;
 }

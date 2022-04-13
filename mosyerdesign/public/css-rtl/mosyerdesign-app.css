@@ -33,7 +33,7 @@ body{
 .btn-primary:hover .icon {
     stroke: #fff !important;
 }
-.active, .desk-sidebar .standard-sidebar-item.selected{
+.standard-sidebar-item.active, .desk-sidebar .standard-sidebar-item.selected{
     color: #fff !important;
     background-color: var(--purple-color) !important;
 }

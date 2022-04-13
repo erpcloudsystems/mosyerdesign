@@ -7,6 +7,7 @@
  "field_order": [
   "enable",
   "sidebar_section",
+  "sidebar_labels",
   "sidebar_item",
   "homepage_shortcuts_section",
   "system_admin_shortcuts",
@@ -80,12 +81,18 @@
    "fieldtype": "Table",
    "label": "SideBar Item",
    "options": "SideBar Item Table"
+  },
+  {
+   "fieldname": "sidebar_labels",
+   "fieldtype": "Table",
+   "label": "Sidebar Label",
+   "options": "Sidebar Label"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-04-11 12:32:33.831895",
+ "modified": "2022-04-13 15:54:45.488726",
  "modified_by": "Administrator",
  "module": "Mosyerdesign",
  "name": "System Controller",

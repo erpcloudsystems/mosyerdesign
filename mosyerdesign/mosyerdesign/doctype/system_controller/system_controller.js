@@ -3,7 +3,7 @@
 
 frappe.ui.form.on('System Controller', {
 	refresh: function(frm) {
-		frm.trigger('set_parent_label_options');
+		frm.trigger('prepare_sidebar_lables');
 
 		frm.fields_dict['system_admin_shortcuts'].grid.get_field("title").get_query = function(doc, cdt, cdn) {
 			return {
@@ -26,39 +26,20 @@ frappe.ui.form.on('System Controller', {
 			}
 		};
 	},
-	set_parent_label_options: function(frm) {
-		frm.fields_dict.sidebar_item.grid.update_docfield_property(
-			'parent_name', 'options', frm.events.get_parent_options(frm, "sidebar_item")
-		);
-	},
-	get_parent_options: function(frm, table_field) {
-		var items = frm.doc[table_field] || [];
-		var main_items = [''];
-		for (var i in items) {
-			var d = items[i];
-			if (d.type == 'Label') {
-				main_items.push(d.label)
-			};
-		}
-		return main_items.join('\n');
-	},
-
-	set_parent_options: function(frm, doctype, name) {
-		var item = frappe.get_doc(doctype, name);
-		if(item.parentfield === "sidebar_item") {
-			frm.trigger('set_parent_label_options');
-		}
-	},
-
+	prepare_sidebar_lables: function(frm) {
+		let labels = '\n';
+		let items = frm.doc['sidebar_labels'] || []
+		let final_labels = []
+		items.forEach(row => {
+			if(row.label) final_labels.push(row.label) 
+		});
+		labels = final_labels.join("\n")
+		console.log(labels);
+		frm.fields_dict.sidebar_item.grid.update_docfield_property('parent_name', 'options', labels);
+	}
 });
-frappe.ui.form.on('SideBar Item Table', {
-	sidebar_item_add(frm) {
-		frm.events.set_parent_label_options(frm);
-	},
-	sidebar_item_delete(frm) {
-		frm.events.set_parent_label_options(frm);
-	},
-	doc_name: function(frm, doctype, name) {
-		frm.events.set_parent_options(frm, doctype, name);
-	},
+frappe.ui.form.on('Sidebar Label', {
+	sidebar_labels_add(frm, cdt, cdn){frm.trigger('prepare_sidebar_lables');},
+	sidebar_labels_delete(frm, cdt, cdn){frm.trigger('prepare_sidebar_lables');},
+	label(frm, cdt, cdn){ frm.trigger('prepare_sidebar_lables');}
 })

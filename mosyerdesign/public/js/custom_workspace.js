@@ -74,23 +74,17 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
     $('.overlay-sidebar').append(toggleBtn)
 
     const get_sidebar_item = function (item) {
-		let href = '#'
-		let cls = ''
-		if (item.items.length == 0){
-			href=`${item.route}`
-		}else{cls = 'dropdown-btn'}
-
 		return $(`
 			<div class="side-item">
 				<div class="flex align-items-center">
-					<a href="/app/${href}" style="flex:1" class="desk-sidebar-item standard-sidebar-item ${cls}" >
+					<a href="#" style="flex:1" class="desk-sidebar-item standard-sidebar-item dropdown-btn" >
 						<span style="pointer-events: none !important;">${frappe.utils.icon(item.icon || "folder-normal", "lg")}</span>
 						<span style="pointer-events: none !important;" class="sidebar-item-label">${__(item.label) || __(item.name)}<span>
 					</a>
 				</div>
 				<div class="drop-down-menu">
 					<ul class="drop-down-list"> 
-						${item.items.map(el=>
+						${item.child_items.map(el=>
 							`<li class="flex align-items-center">
 								<span class="icon">${frappe.utils.icon(el.icon || "folder-normal", "md")}</span>
 								<a href="/app/${el.route}" class="dropdown-item p-0" style="font-size:14px">${__(el.name)}</a>
@@ -98,7 +92,7 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
 							</li>`).join('')} 
 					</ul>
 				</div>
-			</div>	
+			</div>
 		`);
     };
 
@@ -351,7 +345,6 @@ class CustomDesktopPage {
         }
     }
 }
-
 
 
 $(document).ready(function () { 

@@ -15,19 +15,19 @@
 {% for doc in allowed_doctypes %}
     <div class="side-item">
         <div class="flex">
-            <a href={{doc.items.length > 0 ? "#"  : "/app/"+ doc.route}} style="flex:1" 
-                class="desk-sidebar-item standard-sidebar-item {{doc.items.length > 0 ? "dropdown-btn":""}} ">
+            <a href="#" style="flex:1" 
+                class="desk-sidebar-item standard-sidebar-item dropdown-btn">
                 <span style="pointer-events: none !important;">{{frappe.utils.icon(doc.icon || "folder-normal", "lg")}}</span>
                 <span style="pointer-events: none !important;" class="sidebar-item-label">{{__(doc.label) || __(doc.name)}}<span>
             </a>
         </div>
         <div class="drop-down-menu">
             <ul class="drop-down-list"> 
-                {% if doc.items.length > 0 %}
-                    {% for item in doc.items %}
+                {% if doc.child_items.length > 0 %}
+                    {% for item in doc.child_items %}
                     <li class="flex align-items-center">
                         <span>{{frappe.utils.icon(item.icon || "folder-normal", "md")}}</span>
-                        <a href="/app/{{ item.route }}" class="dropdown-item" style="font-size:14px">{{ __(item.name) }}</a>
+                        <a href="/app/{{ item.route }}" class="dropdown-item" style="font-size:14px">{{ __(item.label) || __(item.name) }}</a>
                     </li>
                     {% endfor %}
                 {% endif %}

@@ -20,7 +20,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Type",
-   "options": "DocType\nReport\nLabel",
+   "options": "DocType\nReport",
    "reqd": 1
   },
   {
@@ -28,15 +28,14 @@
    "fieldtype": "Dynamic Link",
    "in_list_view": 1,
    "label": "Name",
-   "options": "type",
-   "read_only_depends_on": "eval:doc.type == 'Label';"
+   "options": "type"
   },
   {
    "fieldname": "parent_name",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Parent Name",
-   "read_only_depends_on": "eval:doc.type == 'Label';"
+   "reqd": 1
   },
   {
    "fieldname": "category",
@@ -68,7 +67,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-04-11 13:12:06.659296",
+ "modified": "2022-04-13 16:14:20.970087",
  "modified_by": "Administrator",
  "module": "Mosyerdesign",
  "name": "SideBar Item Table",
