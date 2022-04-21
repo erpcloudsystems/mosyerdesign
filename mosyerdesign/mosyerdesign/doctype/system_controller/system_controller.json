@@ -9,6 +9,9 @@
   "sidebar_section",
   "sidebar_labels",
   "sidebar_item",
+  "employee_shortcuts_section",
+  "employee_label",
+  "employee_shortcuts",
   "homepage_shortcuts_section",
   "system_admin_shortcuts",
   "hr_manager_shortcuts",
@@ -87,12 +90,29 @@
    "fieldtype": "Table",
    "label": "Sidebar Label",
    "options": "Sidebar Label"
+  },
+  {
+   "fieldname": "employee_shortcuts_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Shortcuts"
+  },
+  {
+   "fieldname": "employee_shortcuts",
+   "fieldtype": "Table",
+   "label": "Employee Shortcuts",
+   "options": "Employee Shortcuts"
+  },
+  {
+   "fieldname": "employee_label",
+   "fieldtype": "Table",
+   "label": "Employee Label",
+   "options": "Employee Label"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-04-13 15:54:45.488726",
+ "modified": "2022-04-21 04:03:20.540304",
  "modified_by": "Administrator",
  "module": "Mosyerdesign",
  "name": "System Controller",
