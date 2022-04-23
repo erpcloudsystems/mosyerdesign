@@ -11,7 +11,7 @@ def boot_session(bootinfo):
 def get_sidebar_items():
     system_controller = frappe.get_single('System Controller')
     labels = []
-    if "Employee" in frappe.get_roles(frappe.session.user):
+    if "Employee" in frappe.get_roles(frappe.session.user) and frappe.session.user != 'Administrator':
         if len(system_controller.employee_label):
             for row in system_controller.employee_label:
                 labels.append({'label': row.label, 'name': row.label,'icon': row.icon, 'child_items':[]})
