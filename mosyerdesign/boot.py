@@ -7,6 +7,7 @@ def boot_session(bootinfo):
     bootinfo.doc_notification = get_doctypes_notification()
     bootinfo.enable_sys_controller = enable_system_controller()
     bootinfo.sidebar_items = get_sidebar_items()
+    bootinfo.desk_settings = get_desk_settings()
 
 def get_sidebar_items():
     system_controller = frappe.get_single('System Controller')
@@ -58,6 +59,21 @@ def get_doctypes_notification():
 def enable_system_controller():
     system_controller = frappe.get_single('System Controller')
     return system_controller.enable
+
+def get_desk_settings():
+    role_list = frappe.get_all("Role", fields=["*"], filters=dict(name=["in", frappe.get_roles()]))
+    desk_settings = {}
+
+    from frappe.core.doctype.role.role import desk_properties
+
+    for role in role_list:
+        for key in desk_properties:
+            if key in ['list_sidebar', 'form_sidebar']:
+                desk_settings[key] = 1
+            else:
+                desk_settings[key] = desk_settings.get(key) or role.get(key)
+
+    return desk_settings
 
 
 # def get_doctypes_employee():
