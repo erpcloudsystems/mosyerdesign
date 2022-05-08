@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-04-21 02:50:11.795091",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "type",
+  "doc_name",
+  "parent_name",
+  "label",
+  "icon",
+  "category",
+  "module"
+ ],
+ "fields": [
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "DocType\nReport",
+   "reqd": 1
+  },
+  {
+   "fieldname": "doc_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Name",
+   "options": "type"
+  },
+  {
+   "fieldname": "parent_name",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Parent Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Label"
+  },
+  {
+   "fieldname": "icon",
+   "fieldtype": "Icon",
+   "in_list_view": 1,
+   "label": "Icon"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "label": "Category"
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "label": "Module",
+   "options": "Module Def"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-04-23 08:57:32.804758",
+ "modified_by": "Administrator",
+ "module": "Mosyerdesign",
+ "name": "Employee Shortcuts",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

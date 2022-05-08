@@ -1,15 +1,14 @@
-
-frappe.views.Workspace.prototype.make_sidebar = function () {
+frappe.views.Workspace.prototype.make_sidebar = function() {
     this.build_sidebar_section('category', frappe.boot.sidebar_items);
 }
-frappe.views.Workspace.prototype.build_sidebar_section = function (title, items) {
-    let sidebar_section = $(`<div class="standard-sidebar-section"></div>`);
+frappe.views.Workspace.prototype.build_sidebar_section = function(title, items) {
+        let sidebar_section = $(`<div class="standard-sidebar-section"></div>`);
 
-    // DO NOT REMOVE: Comment to load translation
-    // __("Modules") __("Domains") __("Places") __("Administration")
-    $(`<div class="standard-sidebar-label">${__(title)}</div>`).appendTo(sidebar_section);
+        // DO NOT REMOVE: Comment to load translation
+        // __("Modules") __("Domains") __("Places") __("Administration")
+        $(`<div class="standard-sidebar-label">${__(title)}</div>`).appendTo(sidebar_section);
 
-    const avatar = `<a href="/app/user" class="standard-sidebar-item " style="border-bottom: 1px solid #eee;">
+        const avatar = `<a href="/app/user" class="standard-sidebar-item " style="border-bottom: 1px solid #eee;">
                         <span>
                             <img src= "${ frappe.boot.user_info[frappe.session.user].image ? frappe.boot.user_info[frappe.session.user].image : '/assets/mosyerdesign/img/avatar-alt.jpg' }"
                             / >
@@ -17,26 +16,25 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
                         <span class="sidebar-item-label"> ${ frappe.session.user_fullname }<span>
                         <p class="text-muted" style="font-size: 12px; margin-bottom:0"> ${frappe.session.user_email}</p>
                     </a>`;
-    const supportImg = `<div class="text-center support-img"> 
+        const supportImg = `<div class="text-center support-img"> 
                             <img src="/assets/mosyerdesign/img/support.jpg" alt="support image" style="width: 200px; height: 180px"
                         </div>
                         `
-    let sett = ''
-    // User Settings Options 
-    frappe.boot.navbar_settings.settings_dropdown.forEach(item => {
+        let sett = ''
+            // User Settings Options 
+        frappe.boot.navbar_settings.settings_dropdown.forEach(item => {
             if (!item.hidden) {
                 if (item.route) {
                     sett += `<a class="dropdown-item" href="${ item.route }"> ${__(item.item_label)} </a>`
                 }
                 if (item.action) {
                     sett += `<a class="dropdown-item" onclick="return ${item.action }"> ${__(item.item_label)} </a>`
-                }
-                else {
+                } else {
                     sett += `<div class="dropdown-divider"></div>`
                 }
             }
-    })
-    const userSettings = `
+        })
+        const userSettings = `
                         <div class="nav-item dropdown dropdown-navbar-user dropdown-mobile mb-2">
                             <a class="nav-link" style="padding-left:12px; margin-top: 10px;" data-toggle="dropdown"
                             href="#" onclick="return false;">
@@ -53,7 +51,7 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
                             </div>
                         </div>
                         `
-    const userAccount = `
+        const userAccount = `
                          <a class="nav-link nav-user-account" href="${frappe.boot.navbar_settings.settings_dropdown[0].route }">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
                                 <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
@@ -61,20 +59,20 @@ frappe.views.Workspace.prototype.build_sidebar_section = function (title, items)
                             <span class="ml-2 user-account" style="font-size: 18px;">${__("My Account")}</span>
                         </a>
                         `
-    const toggleBtn = `
+        const toggleBtn = `
                         <a class="toggler-btn text-muted">
                             <img src="/assets/mosyerdesign/img/toggler.svg" />
                             <span class="sidebar-item-label" style="font-size:13px !important; margin-left: 10px; font-weight:600;transition: all .3s ease-in-out !important;">${__("Toggle sidebar")}</span>
                         </a>
                         `
-    sidebar_section.prepend(avatar)
-    $('.overlay-sidebar').append(userSettings)
-    $('.overlay-sidebar').append(supportImg)
-    $('.overlay-sidebar').append(userAccount)
-    $('.overlay-sidebar').append(toggleBtn)
+        sidebar_section.prepend(avatar)
+        $('.overlay-sidebar').append(userSettings)
+        $('.overlay-sidebar').append(supportImg)
+        $('.overlay-sidebar').append(userAccount)
+        $('.overlay-sidebar').append(toggleBtn)
 
-    const get_sidebar_item = function (item) {
-		return $(`
+        const get_sidebar_item = function(item) {
+                return $(`
 			<div class="side-item">
 				<div class="flex align-items-center">
 					<a href="#" style="flex:1" class="desk-sidebar-item standard-sidebar-item dropdown-btn" >
