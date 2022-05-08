@@ -68,11 +68,9 @@ def get_desk_settings():
 
     for role in role_list:
         for key in desk_properties:
-            if key in ['list_sidebar', 'form_sidebar']:
-                desk_settings[key] = 1
-            else:
-                desk_settings[key] = desk_settings.get(key) or role.get(key)
-
+            desk_settings[key] = desk_settings.get(key) or role.get(key)
+    desk_settings['list_sidebar'] = 1
+    desk_settings['form_sidebar'] = 1
     return desk_settings
 
 
