@@ -18,13 +18,18 @@ def get_sidebar_items():
     for label in labels:
         for row in system_controller.sidebar_item:
             route = ''
+            has_permission = False
             if row.type == 'Report':
                 route = 'query-report/' + row.doc_name
             elif row.type == 'DocType':
+                has_permission = frappe.has_permission(doctype=row.doc_name, user=frappe.session.user)
                 route = '-'.join(row.doc_name.lower().split(' '))
 
             if label.get('label') == row.parent_name:
-                label.get('child_items').append({'name':row.doc_name, 'label':row.label, 'icon':row.icon, 'route':route})
+                label.get('child_items').append({
+                    'name':row.doc_name, 'label':row.label,
+                    'has_permission': has_permission, 'icon':row.icon, 'route':route
+                })
     return labels
 
 def get_doctypes_notification():
