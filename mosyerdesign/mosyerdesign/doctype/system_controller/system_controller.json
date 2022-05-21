@@ -6,37 +6,22 @@
  "engine": "InnoDB",
  "field_order": [
   "enable",
+  "show_sidebar",
   "sidebar_section",
   "sidebar_labels",
   "sidebar_item",
-  "employee_shortcuts_section",
-  "employee_label",
-  "employee_shortcuts",
   "homepage_shortcuts_section",
-  "system_admin_shortcuts",
-  "hr_manager_shortcuts",
-  "hr_user_shortcuts",
-  "homepage_dashboard_charts_section",
-  "home_charts",
+  "shortcuts",
+  "homepage_charts_section",
+  "charts",
   "notification_section",
   "notifications"
  ],
  "fields": [
   {
-   "fieldname": "home_charts",
-   "fieldtype": "Table",
-   "label": "Home Charts",
-   "options": "Home Chart Table"
-  },
-  {
    "fieldname": "homepage_shortcuts_section",
    "fieldtype": "Section Break",
    "label": "Homepage Shortcuts"
-  },
-  {
-   "fieldname": "homepage_dashboard_charts_section",
-   "fieldtype": "Section Break",
-   "label": "Homepage Dashboard Charts"
   },
   {
    "default": "0",
@@ -44,24 +29,6 @@
    "fieldtype": "Check",
    "label": "Enable",
    "read_only": 1
-  },
-  {
-   "fieldname": "hr_user_shortcuts",
-   "fieldtype": "Table",
-   "label": "HR User Shortcuts",
-   "options": "HR User Shortcuts Table"
-  },
-  {
-   "fieldname": "system_admin_shortcuts",
-   "fieldtype": "Table",
-   "label": "System Admin Shortcuts",
-   "options": "System Admin Shortcuts Table"
-  },
-  {
-   "fieldname": "hr_manager_shortcuts",
-   "fieldtype": "Table",
-   "label": "HR Manager Shortcuts",
-   "options": "HR Manager Shortcuts Table"
   },
   {
    "fieldname": "notification_section",
@@ -82,7 +49,7 @@
   {
    "fieldname": "sidebar_item",
    "fieldtype": "Table",
-   "label": "SideBar Item",
+   "label": "Sidebar Item",
    "options": "SideBar Item Table"
   },
   {
@@ -92,27 +59,33 @@
    "options": "Sidebar Label"
   },
   {
-   "fieldname": "employee_shortcuts_section",
+   "fieldname": "shortcuts",
+   "fieldtype": "Table",
+   "label": "Shortcuts",
+   "options": "System Shortcut"
+  },
+  {
+   "fieldname": "homepage_charts_section",
    "fieldtype": "Section Break",
-   "label": "Employee Shortcuts"
+   "label": "Homepage Charts"
   },
   {
-   "fieldname": "employee_shortcuts",
+   "fieldname": "charts",
    "fieldtype": "Table",
-   "label": "Employee Shortcuts",
-   "options": "Employee Shortcuts"
+   "label": "Charts",
+   "options": "Workspace Chart"
   },
   {
-   "fieldname": "employee_label",
-   "fieldtype": "Table",
-   "label": "Employee Label",
-   "options": "Employee Label"
+   "default": "1",
+   "fieldname": "show_sidebar",
+   "fieldtype": "Check",
+   "label": "Show Sidebar"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-04-21 04:03:20.540304",
+ "modified": "2022-05-09 13:34:45.114693",
  "modified_by": "Administrator",
  "module": "Mosyerdesign",
  "name": "System Controller",
