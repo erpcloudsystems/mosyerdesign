@@ -105,7 +105,11 @@ home_page = "login"
 # 		"on_trash": "method"
 #	}
 # }
-
+doc_events = {
+	"User": {
+		"after_insert": "mosyerdesign.api.prepare_user_home"
+	}
+}
 # Scheduled Tasks
 # ---------------
 
@@ -136,7 +140,8 @@ home_page = "login"
 # ------------------------------
 #
 override_whitelisted_methods = {
-	"frappe.desk.desktop.get_desktop_page": "mosyerdesign.desktop.get_desktop_page"
+	"frappe.desk.desktop.get_desktop_page": "mosyerdesign.desktop.get_desktop_page",
+	"frappe.desk.desktop.reset_customization": "mosyerdesign.desktop.reset_customization"
 }
 #
 # each overriding function accepts a `data` argument;

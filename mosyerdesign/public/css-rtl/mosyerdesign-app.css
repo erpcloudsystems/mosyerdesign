@@ -216,12 +216,12 @@ h3.title-text{
 .grid-col-1{
     grid-template-columns: none !important;
 }
-.widget-title svg{
+/* .widget-title svg{
     fill: #fff !important;
-}
-.grid-col-3{
+} */
+/*.grid-col-3{
     flex-wrap: wrap !important;
-}
+}*/
 /* ================== */
 .list-row-head ,
 .level-item {
@@ -319,10 +319,10 @@ h3.title-text{
 .sort-selector{
     display: none !important;
 }
-.page-actions .btn:not(.icon-btn){
+/* .page-actions .btn:not(.icon-btn){
     height: auto !important;
     padding: 8px 15px !important;
-}
+} */
 .standard-actions{
     align-items: center !important;
 }
@@ -373,7 +373,7 @@ h3.title-text{
 .justify-content-end {
     justify-content: flex-end !important;
 }
-.widget.shortcut-widget-box{
+/* .widget.shortcut-widget-box{
     width: 200px !important;
     height: 70px !important;
     margin-left: 5px !important;
@@ -383,13 +383,13 @@ h3.title-text{
     align-items: center !important;
     justify-content: center !important;
     background-color: var(--purple-color) !important;
-}
-.widget-head .widget-title{
+} */
+/* .widget-head .widget-title{
     color: #fff !important;
-}
-.widget-group .grid-col-3{
+} */
+/* .widget-group .grid-col-3{
     display: flex !important;
-}
+} */
 /* =========== Notifications ============= */
 .notification-box{
     position: relative;
@@ -462,9 +462,9 @@ input[type="checkbox"]:checked{
     .actions-btn {
         margin-top: 8px !important;
     }
-    div.widget-group-body.grid-col-3{
+    /*div.widget-group-body.grid-col-3{
         justify-content: center !important;
-    }
+    }*/
     .switcher-icon{
         margin-left: 18px !important;
     }

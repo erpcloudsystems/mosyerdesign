@@ -20,7 +20,7 @@
                 <div class="flex">
                     <a href="#" style="flex:1" 
                         class="desk-sidebar-item standard-sidebar-item dropdown-btn">
-                        <span style="pointer-events: none !important;">{{frappe.utils.icon(doc.icon || "folder-normal", "lg")}}</span>
+                        <span style="pointer-events: none !important;">{{frappe.utils.icon(doc.icon || "folder-open", "lg")}}</span>
                         <span style="pointer-events: none !important;" class="sidebar-item-label">{{__(doc.label) || __(doc.name)}}<span>
                     </a>
                 </div>
@@ -29,7 +29,7 @@
                        {% if doc.child_items.length > 0 %}
                         {% for item in doc.child_items %}
                             <li class="flex align-items-center">
-                                <span>{{frappe.utils.icon(item.icon || "folder-normal", "md")}}</span>
+                                <span>{{frappe.utils.icon(item.icon || "folder-open", "md")}}</span>
                                 <a href="/app/{{item.route}}" class="dropdown-item" style="font-size:14px">{{ __(item.label) || __(item.name) }}</a>
                             </li>
                         {% endfor %}
