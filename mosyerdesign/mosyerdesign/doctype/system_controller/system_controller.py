@@ -30,6 +30,7 @@ class SystemController(Document):
                 'color': shortcut.color,
                 'background': shortcut.background
             })
+        ws.is_standard = 0
         ws.save(ignore_permissions=True)
         frappe.db.commit()
 
