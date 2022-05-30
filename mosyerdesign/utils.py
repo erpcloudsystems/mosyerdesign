@@ -11,7 +11,7 @@ default_home_workspace = {
  'onboarding': None,
  'extends_another_page': 0,
  'is_default': 0,
- 'is_standard': 1,
+ 'is_standard': 0,
  'developer_mode_only': 0,
  'disable_user_customization': 0,
  'pin_to_top': 1,
