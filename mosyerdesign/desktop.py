@@ -97,7 +97,7 @@ def reset_customization(page):
             'label': shortcut.label or shortcut.link_to,
             'icon': shortcut.icon or 'folder-open',
             'color': shortcut.color or '#ffffff',
-            'background': shortcut.background or "#885af8"
+            # 'background': shortcut.background or "#885af8"
         })
     ws.save(ignore_permissions=True)
     frappe.db.commit()

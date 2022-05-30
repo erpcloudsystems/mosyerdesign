@@ -28,7 +28,7 @@ class SystemController(Document):
                 'label': shortcut.label or shortcut.link_to,
                 'icon': shortcut.icon,
                 'color': shortcut.color,
-                'background': shortcut.background
+                # 'background': shortcut.background
             })
         ws.is_standard = 0
         ws.save(ignore_permissions=True)
